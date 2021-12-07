@@ -1,0 +1,85 @@
+@import '../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';
+@import '_hamburger.scss';
+body {
+  height: 100vh;
+  position: relative;
+}
+
+// Colors Start : : : : : : : : : :
+$HoverColorBlue: #219ebc;
+$ShadowColor: #333;
+// Colors End : : : : : : : : : :
+
+
+.menu_container {
+  height: 100%;
+  width: 18%;
+  box-shadow: 0 0 10px $ShadowColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  .logo_app {
+    width: 100%;
+    height: auto;
+  }
+  .menu_list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 30%;
+    margin-top: 80px;
+    li {
+      list-style-type: none;
+      padding: 10px;
+      cursor: pointer;
+      .person {
+        font-size: 1.2em;
+      }
+    }
+  }
+  .hamburger{
+    position: absolute;
+    z-index: 1;
+  }
+}
+.backdrop{
+  position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1055;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    background: rgba(0,0,0,0.70);
+}
+// Hover style to Menu items start : : : : : : : : : 
+.colorful-1 {
+  padding: 10px;
+  color: #0000;
+  font-weight: bold;
+  background: linear-gradient(90deg, $HoverColorBlue 50%, #000 0) right/200%
+    100% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: 0.4s linear;
+}
+.colorful-1:hover {
+  background-position: left;
+}
+.colorful-1:before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 100%;
+  height: 4px;
+  background: $HoverColorBlue;
+  transition: inherit;
+}
+.colorful-1:hover:before {
+  inset: auto 0 0 0;
+}
+// Hover style to Menu items end : : : : : : : : : 
