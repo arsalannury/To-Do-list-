@@ -1,19 +1,9 @@
 /*!
- * Toastify js 1.11.2
- * https://github.com/apvarun/toastify-js
- * @license MIT licensed
- *
- * Copyright (C) 2018 Varun A P
+ * 
+ * persian-date -  1.1.0
+ * Reza Babakhani <babakhani.reza@gmail.com>
+ * http://babakhani.github.io/PersianWebToolkit/docs/persian-date/
+ * Under MIT license 
+ * 
+ * 
  */
-
-/*! ./darkmode */
-
-/*! no static exports found */
-
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-
-/*!*************************!*\
-  !*** ./src/darkmode.js ***!
-  \*************************/
