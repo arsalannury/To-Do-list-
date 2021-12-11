@@ -1,5 +1,5 @@
 @import '../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';
-@import '_hamburger.scss';
+
 body {
   height: 100vh;
   position: relative;
@@ -39,10 +39,11 @@ $ShadowColor: #333;
       }
     }
   }
-  .hamburger{
-    position: absolute;
-    z-index: 1;
-  }
+}
+.hamburger{
+  position: absolute;
+  z-index: 10;
+  left: 3px;
 }
 .backdrop{
   position: fixed;
