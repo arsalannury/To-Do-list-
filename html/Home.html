@@ -17,23 +17,36 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
     />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
     <link href="dist/hamburgers.css" />
     <title>Todo List App</title>
     <link rel="shortcut icon" href="../images/javascript.png" />
   </head>
   <body>
     <div class="backdrop"></div>
-    <button
-      class="hamburger hamburger--spin"
-      type="button"
-      aria-label="Menu"
-      aria-controls="navigation"
-      aria-expanded="true/false"
-    >
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
+    <!-- hamburger start ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+    <div class="hamburger_container">
+      <button
+        class="hamburger hamburger--spin"
+        type="button"
+        aria-label="Menu"
+        aria-controls="navigation"
+        aria-expanded="true/false"
+      >
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+      <i class="bi bi-moon-fill darkmode_icon"></i>
+    </div>
+    <!-- hamburger end ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+    <!-- navigation left side start ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
     <div class="menu_container">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
@@ -70,7 +83,121 @@
         ></path>
       </svg>
     </div>
+    <!-- navigation left side End ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 
+    <!-- modal add item start ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
+    <div class="to_do_list">
+      <button
+        type="button"
+        class="btn btn-primary add_item_btn"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        <i class="bi bi-plus add_item_icon"></i>
+        Add Item To List
+      </button>
+     <div class="card_container">
+       <p>Nothing to do</p>
+       <div class="aquarium">
+        <div class="aquarium__table"></div>
+        <div class="aquarium__aquarium">
+          <div class="aquarium__water"></div>
+          <div class="aquarium__bubble"></div>
+          <div class="aquarium__bubble"></div>
+          <div class="aquarium__bubble"></div>
+          <div class="aquarium__bubble"></div>
+          <div class="aquarium__bubble"></div>
+          <div class="aquarium__bubble"></div>
+          <div class="aquarium__bubble"></div>
+          <div class="aquarium__bubble"></div>
+        </div>
+        <div class="aquarium__drops">
+          <div class="aquarium__drop"></div>
+          <div class="aquarium__water-column"></div>
+          <div class="aquarium__splash"></div>
+          <div class="aquarium__splash"></div>
+        </div>
+        <div class="aquarium__sponge-box">
+          <div class="aquarium__body">
+            <div class="aquarium__body-stripe"></div>
+            <div class="aquarium__body-hole"></div>
+          </div>
+          <div class="aquarium__face">
+            <div class="aquarium__mouth"></div>
+            <div class="aquarium__smile"></div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Card title</h4>
+          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+          <p class="card-text">
+            Some quick example text to build on the card title
+            and make up the bulk of the card's content.
+          </p>
+          <a href="#!" class="card-link">Card link</a>
+          <a href="#!" class="card-link">Another link</a>
+        </div>
+      </div> -->
+      </div>
+    </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Add your item to Do ..."
+                aria-label="Example text with button addon"
+                aria-describedby="button-addon1"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Add</button>
+          </div>
+        </div>
+      </div>
+      <!-- navigation left side End ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+      integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
     <script src="../dist/main.js"></script>
   </body>
 </html>
