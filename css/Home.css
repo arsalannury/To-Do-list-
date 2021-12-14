@@ -995,10 +995,11 @@
 body {
   height: 100vh;
   position: relative;
-  transition: all .7s ease;
+  transition: all 0.7s ease;
 }
 
 .menu_container {
+  transition: all 0.7s ease;
   height: 100vh;
   width: 18%;
   box-shadow: 0 0 10px #333;
@@ -1010,7 +1011,7 @@ body {
   display: none;
   top: 0;
   z-index: 9;
-  background-color: #000;
+  background-color: #fff;
 }
 
 .menu_container .logo_app {
@@ -1030,6 +1031,7 @@ body {
 }
 
 .menu_container .menu_list li {
+  transition: all 0.7s ease;
   list-style-type: none;
   padding: 10px;
   cursor: pointer;
@@ -1049,7 +1051,7 @@ body {
   margin-right: 10px;
   font-size: 1.4em;
   cursor: pointer;
-  transition: all .7s ease;
+  transition: all 0.7s ease;
   color: #aaa;
 }
 
@@ -1062,7 +1064,7 @@ body {
   font-size: 1.4em;
   cursor: pointer;
   color: #ffb703;
-  transition: all .7s ease;
+  transition: all 0.7s ease;
 }
 
 .hamburger {
@@ -1088,6 +1090,18 @@ body {
 .hamburger-inner::before,
 .hamburger-inner::after {
   background-color: #aaa !important;
+}
+
+.aquarium {
+  transition: all 0.7s ease;
+}
+
+.navbar_svg {
+  transition: all 0.7s ease;
+}
+
+.navbar_svg path {
+  transition: all 0.7s ease;
 }
 
 .colorful-1 {
@@ -1156,6 +1170,7 @@ body {
   width: 800px;
   height: 389px;
   margin: auto;
+  transition: all 0.7s ease;
 }
 
 .aquarium *,
@@ -1172,6 +1187,7 @@ body {
   height: 6px;
   border-radius: 3px;
   background: black;
+  transition: all 0.7s ease;
 }
 
 .aquarium__table:before {
@@ -1196,6 +1212,7 @@ body {
   box-shadow: inset -30px 0 0 0 rgba(54, 125, 231, 0.2);
   overflow: hidden;
   z-index: 1;
+  transition: all 0.7s ease;
 }
 
 .aquarium__water {
