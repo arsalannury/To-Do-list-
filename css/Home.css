@@ -995,6 +995,7 @@
 body {
   height: 100vh;
   position: relative;
+  transition: all .7s ease;
 }
 
 .menu_container {
@@ -1009,7 +1010,7 @@ body {
   display: none;
   top: 0;
   z-index: 9;
-  background-color: #fff;
+  background-color: #000;
 }
 
 .menu_container .logo_app {
@@ -1046,8 +1047,22 @@ body {
 
 .darkmode_icon {
   margin-right: 10px;
-  font-size: 1.2em;
+  font-size: 1.4em;
   cursor: pointer;
+  transition: all .7s ease;
+  color: #aaa;
+}
+
+.darkmode_icon:hover {
+  color: #ffb703;
+}
+
+.darkmode_icon_sun {
+  margin-right: 10px;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: #ffb703;
+  transition: all .7s ease;
 }
 
 .hamburger {
@@ -1067,6 +1082,12 @@ body {
   overflow-y: auto;
   outline: 0;
   background: rgba(0, 0, 0, 0.7);
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  background-color: #aaa !important;
 }
 
 .colorful-1 {
