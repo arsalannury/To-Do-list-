@@ -1118,12 +1118,22 @@ body {
   justify-content: space-evenly;
 }
 
+.card_container p {
+  font-size: 1.3em;
+  color: #aaa;
+  margin-bottom: 0 !important;
+}
+
+.card_container p::first-letter {
+  color: #0d6efd;
+}
+
 .aquarium {
   position: relative;
   overflow: hidden;
   background: white;
   width: 800px;
-  height: 500px;
+  height: 389px;
   margin: auto;
 }
 
