@@ -19,7 +19,7 @@ const addToDoBtn = document.querySelector(".add_todo_btn");
 const addToDoInput = document.querySelector(".add_to_do_input");
 const closeToDoBtn = document.querySelector(".close_todo_btn");
 const iconCloseModal = document.querySelector(".icon_close_modal");
-
+const mainModalToDo = document.querySelector('.main_modal_add_todo')
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
 const updateTime = setInterval(() => {
@@ -128,12 +128,13 @@ function navbarBtnHandlerHide() {
 addToDoBtn.addEventListener("click", (e) => {
   addToDo();
 });
-closeToDoBtn.addEventListener("click", (e) => {
-  closeToDo();
-});
-iconCloseModal.addEventListener("click", (e) => {
-  closeToDo();
-});
+
+setInterval(() => {
+  if(mainModalToDo.style.display === 'none'){
+    addToDoInput.value = "";
+  }
+},4000)
+
 const getDateToItem = new persianDate().format();
 
 function addToDo() {
@@ -167,6 +168,3 @@ function addToDo() {
   addToDoInput.value = "";
 }
 
-function closeToDo() {
-  addToDoInput.value = "";
-}
