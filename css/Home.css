@@ -1084,6 +1084,7 @@ body {
   overflow-y: auto;
   outline: 0;
   background: rgba(0, 0, 0, 0.7);
+  transition: all 5s ease;
 }
 
 .hamburger-inner,

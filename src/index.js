@@ -12,7 +12,7 @@ const navbarContainer = document.querySelector(".menu_container");
 const navbarSvg = document.querySelectorAll(".navbar_svg path");
 const navbarListItem = document.querySelectorAll(".menu_container ul li");
 const navbarBackdrop = document.querySelector(".backdrop");
-const hamburgerNavbarBtn = document.querySelector('#hamburger_navbar');
+const hamburgerNavbarBtn = document.querySelector(".hamburger_navbar");
 
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
@@ -21,8 +21,6 @@ const updateTime = setInterval(() => {
   datePersian.innerText = innerTexDateElement;
 }, 1000);
 // pesrian date show to navbar menu end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-
 
 // light and dark Mode web page start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -66,11 +64,11 @@ function darkModeStyles() {
 }
 
 function lightModeStyles() {
-    Toastify({
-        text: "Light mode",
-        position: "center",
-        duration: 3000,
-      }).showToast();
+  Toastify({
+    text: "Light mode",
+    position: "center",
+    duration: 3000,
+  }).showToast();
   document.body.style.backgroundColor = "#fff";
   document.body.style.color = "unset";
   darkModeIconMoon.className = "bi bi-moon darkmode_icon";
@@ -92,10 +90,32 @@ function lightModeStyles() {
 }
 // light Mode and dark mode web page end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-hamburgerNavbarBtn.addEventListener('click',(e) => {
-  navbarBtnHandler();
+
+// show and hide navbar start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+hamburgerNavbarBtn.addEventListener("click", (e) => {
+  if (hamburgerNavbarBtn.id === "true") {
+    navbarBtnHandlerShow();
+  } else if (hamburgerNavbarBtn.id === "false") {
+    navbarBtnHandlerHide();
+  }
+});
+
+navbarBackdrop.addEventListener('click',(e) => {
+  navbarBtnHandlerHide()
 })
-function navbarBtnHandler(){
-  navbarContainer.style.transform = 'translateX(0)';
-  navbarBackdrop.style.display = 'unset';
+
+function navbarBtnHandlerShow() {
+  hamburgerNavbarBtn.classList.add("is-active");
+  navbarContainer.style.transform = "translateX(0)";
+  navbarBackdrop.style.display = "unset";
+  hamburgerNavbarBtn.id = "false";
 }
+
+function navbarBtnHandlerHide() {
+  hamburgerNavbarBtn.classList.remove("is-active");
+  navbarContainer.style.transform = "translateX(-300px)";
+  navbarBackdrop.style.display = "none";
+  hamburgerNavbarBtn.id = "true";
+}
+// show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
