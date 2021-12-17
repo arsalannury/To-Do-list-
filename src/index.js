@@ -13,6 +13,10 @@ const navbarSvg = document.querySelectorAll(".navbar_svg path");
 const navbarListItem = document.querySelectorAll(".menu_container ul li");
 const navbarBackdrop = document.querySelector(".backdrop");
 const hamburgerNavbarBtn = document.querySelector(".hamburger_navbar");
+const paragraphEmptyList = document.querySelector(".nothing_to_do");
+const cardContainer = document.querySelector(".card_container");
+const addToDoBtn = document.querySelector(".add_todo_btn");
+const addToDoInput = document.querySelector('.add_to_do_input');
 
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
@@ -58,7 +62,7 @@ function darkModeStyles() {
   modalBackdrop.style.backgroundColor = "rgba(255,255,255,.20)";
   navbarBackdrop.style.backgroundColor = "rgba(255,255,255,.20)";
   navbarListItem.forEach((item) => {
-    item.style.color = "#fff";
+    item.style.color = "rgba(255,255,255,.5)";
   });
   document.body.id = "false";
 }
@@ -84,12 +88,11 @@ function lightModeStyles() {
   modalBackdrop.style.backgroundColor = "unset";
   navbarBackdrop.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
   navbarListItem.forEach((item) => {
-    item.style.color = "#000";
+    item.style.color = "#0000";
   });
   document.body.id = "true";
 }
 // light Mode and dark mode web page end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
 
 // show and hide navbar start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -101,9 +104,9 @@ hamburgerNavbarBtn.addEventListener("click", (e) => {
   }
 });
 
-navbarBackdrop.addEventListener('click',(e) => {
-  navbarBtnHandlerHide()
-})
+navbarBackdrop.addEventListener("click", (e) => {
+  navbarBtnHandlerHide();
+});
 
 function navbarBtnHandlerShow() {
   hamburgerNavbarBtn.classList.add("is-active");
@@ -119,3 +122,24 @@ function navbarBtnHandlerHide() {
   hamburgerNavbarBtn.id = "true";
 }
 // show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+addToDoBtn.addEventListener("click", (e) => {
+  addToDo();
+});
+const getDateToItem = new persianDate().format();
+function addToDo() {
+  paragraphEmptyList.style.display = "none";
+  aquariumBody.style.display = "none";
+  cardContainer.innerHTML += `
+  <div class="card">
+  <div class="card-body">
+  <h6 class="card-subtitle mb-2 text-muted">${getDateToItem}</h6>
+  <p class="card-text">
+    ${addToDoInput.value}
+  </p>
+  <a href="#!" class="card-link">Done</a>
+  <a href="#!" class="card-link">Delete</a>
+  </div>
+  </div> 
+  `;
+}
