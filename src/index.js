@@ -16,7 +16,9 @@ const hamburgerNavbarBtn = document.querySelector(".hamburger_navbar");
 const paragraphEmptyList = document.querySelector(".nothing_to_do");
 const cardContainer = document.querySelector(".card_container");
 const addToDoBtn = document.querySelector(".add_todo_btn");
-const addToDoInput = document.querySelector('.add_to_do_input');
+const addToDoInput = document.querySelector(".add_to_do_input");
+const closeToDoBtn = document.querySelector(".close_todo_btn");
+const iconCloseModal = document.querySelector(".icon_close_modal");
 
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
@@ -126,8 +128,28 @@ function navbarBtnHandlerHide() {
 addToDoBtn.addEventListener("click", (e) => {
   addToDo();
 });
+closeToDoBtn.addEventListener("click", (e) => {
+  closeToDo();
+});
+iconCloseModal.addEventListener("click", (e) => {
+  closeToDo();
+});
 const getDateToItem = new persianDate().format();
+
 function addToDo() {
+  if (!addToDoInput.value) {
+    Toastify({
+      text: "Oops ! add somthing to do",
+      duration: 3000,
+      position: "center",
+      gravity: "bottom",
+      style: {
+        background: "#e5383b",
+        color: "#fff",
+      },
+    }).showToast();
+    return;
+  }
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
   cardContainer.innerHTML += `
@@ -137,9 +159,14 @@ function addToDo() {
   <p class="card-text">
     ${addToDoInput.value}
   </p>
-  <a href="#!" class="card-link">Done</a>
-  <a href="#!" class="card-link">Delete</a>
+  <button type="button" class="btn btn-outline-success"> <i class="bi bi-check2"></i> Done</button>
+  <button type="button" class="btn btn-outline-danger"> <i class="bi bi-trash"></i> Delete</button>
   </div>
   </div> 
   `;
+  addToDoInput.value = "";
+}
+
+function closeToDo() {
+  addToDoInput.value = "";
 }

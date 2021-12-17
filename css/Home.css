@@ -1160,8 +1160,12 @@ body {
   margin-bottom: 0 !important;
 }
 
-.card_container p::first-letter {
+.card_container .nothing_to_do::first-letter {
   color: #0d6efd;
+}
+
+.modal {
+  z-index: 1058 !important;
 }
 
 .aquarium {
