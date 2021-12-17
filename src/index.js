@@ -12,6 +12,7 @@ const navbarContainer = document.querySelector(".menu_container");
 const navbarSvg = document.querySelectorAll(".navbar_svg path");
 const navbarListItem = document.querySelectorAll(".menu_container ul li");
 const navbarBackdrop = document.querySelector(".backdrop");
+const hamburgerNavbarBtn = document.querySelector('#hamburger_navbar');
 
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
@@ -90,3 +91,11 @@ function lightModeStyles() {
   document.body.id = "true";
 }
 // light Mode and dark mode web page end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+hamburgerNavbarBtn.addEventListener('click',(e) => {
+  navbarBtnHandler();
+})
+function navbarBtnHandler(){
+  navbarContainer.style.transform = 'translateX(0)';
+  navbarBackdrop.style.display = 'unset';
+}
