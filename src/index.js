@@ -135,7 +135,6 @@ setInterval(() => {
   }
 },4000)
 
-const getDateToItem = new persianDate().format();
 
 function addToDo() {
   if (!addToDoInput.value) {
@@ -156,7 +155,7 @@ function addToDo() {
   cardContainer.innerHTML += `
   <div class="card">
   <div class="card-body">
-  <h6 class="card-subtitle mb-2">${getDateToItem}</h6>
+  <h6 class="card-subtitle mb-2">${new persianDate().format()}</h6>
   <p class="card-text">
     ${addToDoInput.value}
   </p>
