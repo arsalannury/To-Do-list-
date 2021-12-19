@@ -1,5 +1,6 @@
 import Toastify from "toastify-js";
 import persianDate from "persian-date";
+// import {AOS} from 'aos';
 
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const darkModeIconSun = document.querySelector(".darkmode_icon_sun");
@@ -153,7 +154,7 @@ function addToDo() {
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
   cardContainer.innerHTML += `
-  <div class="card">
+  <div data-aos="zoom-in" class="card">
   <div class="card-body">
   <h6 class="card-subtitle mb-2">${new persianDate().format()}</h6>
   <p class="card-text">

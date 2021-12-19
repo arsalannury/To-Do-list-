@@ -189,8 +189,10 @@ $hamburgerIconColor: #aaa;
 // modal section end : : : : : : : : : : : : ::
 
 
+// card and card body start : : : : : : : : : : : : ::
 .card{
-  max-width: 300px;
+  width: 300px;
+  margin: 30px;
 }
 .card-subtitle{
   font-weight: bold;
@@ -209,6 +211,7 @@ $hamburgerIconColor: #aaa;
   align-items: center;
   justify-content: space-evenly;
 }
+// card and card body end
 
 // animation to list : : : : : : : : : : : : : : : : : : : : : : : : : : :
 // animation to list : : : : : : : : : : : : : : : : : : : : : : : : : : :
