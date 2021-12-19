@@ -156,15 +156,20 @@ function addToDo() {
   cardContainer.innerHTML += `
   <div class="card">
   <div class="card-body">
-  <h6 class="card-subtitle mb-2 text-muted">${getDateToItem}</h6>
+  <h6 class="card-subtitle mb-2">${getDateToItem}</h6>
   <p class="card-text">
     ${addToDoInput.value}
   </p>
-  <button type="button" class="btn btn-outline-success"> <i class="bi bi-check2"></i> Done</button>
-  <button type="button" class="btn btn-outline-danger"> <i class="bi bi-trash"></i> Delete</button>
+
+  <div class='btn_card_container'>
+  <button type="button" class="btn btn-outline-success card_btn_css">Done</button>
+  <button type="button" class="btn btn-outline-danger card_btn_css">Delete</button>
+  </div>
+
   </div>
   </div> 
   `;
+  cardContainer.style.flexDirection = 'row';
   addToDoInput.value = "";
 }
 

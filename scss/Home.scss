@@ -169,8 +169,9 @@ $hamburgerIconColor: #aaa;
   align-items: center;
   flex-direction: column;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
-.card_container p {
+.card_container .nothing_to_do {
   font-size: 1.3em;
   color: #aaa;
   margin-bottom: 0 !important;
@@ -180,8 +181,33 @@ $hamburgerIconColor: #aaa;
 }
 // card section end : : : : : : : : : : : : ::
 
+
+// modal section start : : : : : : : : : : : : ::
 .modal{
   z-index: 1058 !important;
+}
+// modal section end : : : : : : : : : : : : ::
+
+
+.card{
+  max-width: 300px;
+}
+.card-subtitle{
+  font-weight: bold;
+  text-align: center;
+}
+.card-text{
+  margin: 30px;
+  color: #111;
+}
+.card_btn_css{
+  padding: 3px 15px !important;
+}
+.btn_card_container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 // animation to list : : : : : : : : : : : : : : : : : : : : : : : : : : :

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/arsalannury/To-Do-list-#readme",
   "dependencies": {
+    "@popperjs/core": "^2.11.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
