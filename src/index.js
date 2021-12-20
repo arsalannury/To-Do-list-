@@ -175,7 +175,7 @@ function addToDo() {
       background: "#38b000",
       color: "#fff",
     },
-  });
+  }).showToast()
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
   cardContainer.innerHTML += `
