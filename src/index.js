@@ -1,7 +1,7 @@
 import Toastify from "toastify-js";
 import persianDate from "persian-date";
-// import {AOS} from 'aos';
-
+// import AOS from 'aos';
+// AOS.init()
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const darkModeIconSun = document.querySelector(".darkmode_icon_sun");
 const modalContent = document.querySelector(".modal-content");
@@ -20,7 +20,7 @@ const addToDoBtn = document.querySelector(".add_todo_btn");
 const addToDoInput = document.querySelector(".add_to_do_input");
 const closeToDoBtn = document.querySelector(".close_todo_btn");
 const iconCloseModal = document.querySelector(".icon_close_modal");
-const mainModalToDo = document.querySelector('.main_modal_add_todo')
+const mainModalToDo = document.querySelector(".main_modal_add_todo");
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
 const updateTime = setInterval(() => {
@@ -131,11 +131,10 @@ addToDoBtn.addEventListener("click", (e) => {
 });
 
 setInterval(() => {
-  if(mainModalToDo.style.display === 'none'){
+  if (mainModalToDo.style.display === "none") {
     addToDoInput.value = "";
   }
-},4000)
-
+}, 4000);
 
 function addToDo() {
   if (!addToDoInput.value) {
@@ -154,7 +153,7 @@ function addToDo() {
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
   cardContainer.innerHTML += `
-  <div data-aos="zoom-in" class="card">
+  <div class="card">
   <div class="card-body">
   <h6 class="card-subtitle mb-2">${new persianDate().format()}</h6>
   <p class="card-text">
@@ -169,7 +168,10 @@ function addToDo() {
   </div>
   </div> 
   `;
-  cardContainer.style.flexDirection = 'row';
+  document.querySelector(".card").classList.add("card_anime");
+  setTimeout(() => {
+    document.querySelector(".card").classList.remove("card_anime");
+  }, 3000);
+  cardContainer.style.flexDirection = "row";
   addToDoInput.value = "";
 }
-

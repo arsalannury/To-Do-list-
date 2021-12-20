@@ -194,6 +194,13 @@ $hamburgerIconColor: #aaa;
   width: 300px;
   margin: 30px;
 }
+.card_anime{
+  animation: anime 2s ease 1 ;
+}
+@keyframes anime {
+  from {transform: translateY(-200px);}
+  to {transform: translateY(0);}
+}
 .card-subtitle{
   font-weight: bold;
   text-align: center;
