@@ -158,7 +158,7 @@ function navbarBtnHandlerHide() {
 }
 // show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-// add todo to list event  start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// add todo to list event start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 addToDoBtn.addEventListener("click", (e) => {
   addToDo();
 });
@@ -215,10 +215,47 @@ function addToDo() {
     document.querySelectorAll(".card").forEach((el) => {
       el.classList.remove("card_anime");
     });
-    console.log("done");
   }, 3000);
-
+  styleCardDarkOrLightMode();
   cardContainer.style.flexDirection = "row";
   addToDoInput.value = "";
 }
 // add todo to list event end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+// when add card if darkmode was on 
+// card has darkmode styles
+// and if light mode was on 
+// card has light mode style
+function styleCardDarkOrLightMode() {
+  if (document.body.id === "true") {
+    document
+      .querySelectorAll(".card-subtitle")
+      .forEach((subtitle) => (subtitle.style.color = "#000"));
+    document
+      .querySelectorAll(".card-text")
+      .forEach((cardText) => (cardText.style.color = "#000"));
+    document
+      .querySelectorAll(".card")
+      .forEach((bgColor) => (bgColor.style.backgroundColor = "#fff"));
+    document
+      .querySelectorAll(".card")
+      .forEach(
+        (colorBorder) =>
+          (colorBorder.style.border = "1px solid rgba(0,0,0,.125)")
+      );
+  } else if (document.body.id === "false") {
+    document
+      .querySelectorAll(".card-subtitle")
+      .forEach((subtitle) => (subtitle.style.color = "#fff"));
+    document
+      .querySelectorAll(".card-text")
+      .forEach((cardText) => (cardText.style.color = "#fff"));
+    document
+      .querySelectorAll(".card")
+      .forEach((bgColor) => (bgColor.style.backgroundColor = "#333"));
+    document
+      .querySelectorAll(".card")
+      .forEach((borderColor) => (borderColor.style.border = "1px solid #fff"));
+  }
+}
