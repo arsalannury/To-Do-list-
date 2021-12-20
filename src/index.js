@@ -21,9 +21,7 @@ const addToDoInput = document.querySelector(".add_to_do_input");
 const closeToDoBtn = document.querySelector(".close_todo_btn");
 const iconCloseModal = document.querySelector(".icon_close_modal");
 const mainModalToDo = document.querySelector(".main_modal_add_todo");
-// const todoCard = document.querySelector('.card');
-// const PersianDateCard = document.querySelector('.card-subtitle');
-// const cardText = document.querySelector('.card-text');
+
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
 const updateTime = setInterval(() => {
@@ -61,10 +59,18 @@ function darkModeStyles() {
   aquariumTable.style.backgroundColor = "#fff";
   aquariumAquarium.style.borderColor = "#fff";
   if (document.querySelector(".card")) {
-    document.querySelector(".card-subtitle").style.color = "#fff";
-    document.querySelector(".card-text").style.color = "#fff";
-    document.querySelector(".card").style.backgroundColor = "#333";
-    document.querySelector(".card").style.border = "1px solid #fff";
+    document
+      .querySelectorAll(".card-subtitle")
+      .forEach((subtitle) => (subtitle.style.color = "#fff"));
+    document
+      .querySelectorAll(".card-text")
+      .forEach((cardText) => (cardText.style.color = "#fff"));
+    document
+      .querySelectorAll(".card")
+      .forEach((bgColor) => (bgColor.style.backgroundColor = "#333"));
+    document
+      .querySelectorAll(".card")
+      .forEach((borderColor) => (borderColor.style.border = "1px solid #fff"));
   }
   navbarSvg.forEach((svg) => {
     svg.style.fill = "#fff";
@@ -93,10 +99,21 @@ function lightModeStyles() {
   aquariumTable.style.backgroundColor = "#000";
   aquariumAquarium.style.borderColor = "#000";
   if (document.querySelector(".card")) {
-    document.querySelector(".card-subtitle").style.color = "#000";
-    document.querySelector(".card-text").style.color = "#000";
-    document.querySelector(".card").style.backgroundColor = "#fff";
-    document.querySelector(".card").style.border = "1px solid rgba(0,0,0,.125)";
+    document
+      .querySelectorAll(".card-subtitle")
+      .forEach((subtitle) => (subtitle.style.color = "#000"));
+    document
+      .querySelectorAll(".card-text")
+      .forEach((cardText) => (cardText.style.color = "#000"));
+    document
+      .querySelectorAll(".card")
+      .forEach((bgColor) => (bgColor.style.backgroundColor = "#fff"));
+    document
+      .querySelectorAll(".card")
+      .forEach(
+        (colorBorder) =>
+          (colorBorder.style.border = "1px solid rgba(0,0,0,.125)")
+      );
   }
   navbarSvg.forEach((svg) => {
     svg.style.fill = "#0099ff";
@@ -175,7 +192,7 @@ function addToDo() {
       background: "#38b000",
       color: "#fff",
     },
-  }).showToast()
+  }).showToast();
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
   cardContainer.innerHTML += `
