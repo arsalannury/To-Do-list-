@@ -21,6 +21,9 @@ const addToDoInput = document.querySelector(".add_to_do_input");
 const closeToDoBtn = document.querySelector(".close_todo_btn");
 const iconCloseModal = document.querySelector(".icon_close_modal");
 const mainModalToDo = document.querySelector(".main_modal_add_todo");
+// const todoCard = document.querySelector('.card');
+// const PersianDateCard = document.querySelector('.card-subtitle');
+// const cardText = document.querySelector('.card-text');
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
 const updateTime = setInterval(() => {
@@ -57,6 +60,12 @@ function darkModeStyles() {
   aquariumBody.style.backgroundColor = "#111";
   aquariumTable.style.backgroundColor = "#fff";
   aquariumAquarium.style.borderColor = "#fff";
+  if (document.querySelector(".card")) {
+    document.querySelector(".card-subtitle").style.color = "#fff";
+    document.querySelector(".card-text").style.color = "#fff";
+    document.querySelector(".card").style.backgroundColor = "#333";
+    document.querySelector(".card").style.border = "1px solid #fff";
+  }
   navbarSvg.forEach((svg) => {
     svg.style.fill = "#fff";
   });
@@ -83,6 +92,12 @@ function lightModeStyles() {
   aquariumBody.style.backgroundColor = "#fff";
   aquariumTable.style.backgroundColor = "#000";
   aquariumAquarium.style.borderColor = "#000";
+  if (document.querySelector(".card")) {
+    document.querySelector(".card-subtitle").style.color = "#000";
+    document.querySelector(".card-text").style.color = "#000";
+    document.querySelector(".card").style.backgroundColor = "#fff";
+    document.querySelector(".card").style.border = "1px solid rgba(0,0,0,.125)";
+  }
   navbarSvg.forEach((svg) => {
     svg.style.fill = "#0099ff";
   });
@@ -126,6 +141,7 @@ function navbarBtnHandlerHide() {
 }
 // show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
+// add todo to list event  start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 addToDoBtn.addEventListener("click", (e) => {
   addToDo();
 });
@@ -150,6 +166,16 @@ function addToDo() {
     }).showToast();
     return;
   }
+  Toastify({
+    text: "Do Somthing Great",
+    duration: 3000,
+    position: "center",
+    gravity: "bottom",
+    style: {
+      background: "#38b000",
+      color: "#fff",
+    },
+  });
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
   cardContainer.innerHTML += `
@@ -172,14 +198,10 @@ function addToDo() {
     document.querySelectorAll(".card").forEach((el) => {
       el.classList.remove("card_anime");
     });
-    console.log('done')
-}, 3000);
+    console.log("done");
+  }, 3000);
 
   cardContainer.style.flexDirection = "row";
   addToDoInput.value = "";
 }
-// setInterval(() => {
-//     document.querySelectorAll(".card").forEach((el) => {
-//       el.classList.remove("card_anime");
-//     });
-// }, 3000);
+// add todo to list event end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||

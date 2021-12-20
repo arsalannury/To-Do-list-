@@ -1172,6 +1172,7 @@ body {
 .card {
   width: 300px;
   margin: 30px;
+  transition: all 0.7s ease;
 }
 
 .card_anime {
@@ -1190,11 +1191,13 @@ body {
 .card-subtitle {
   font-weight: bold;
   text-align: center;
+  transition: all 0.7s ease;
 }
 
 .card-text {
   margin: 30px;
   color: #111;
+  transition: all 0.7s ease;
 }
 
 .card_btn_css {
