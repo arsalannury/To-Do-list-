@@ -153,7 +153,7 @@ function addToDo() {
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
   cardContainer.innerHTML += `
-  <div class="card">
+  <div class="card card_anime">
   <div class="card-body">
   <h6 class="card-subtitle mb-2">${new persianDate().format()}</h6>
   <p class="card-text">
@@ -168,10 +168,18 @@ function addToDo() {
   </div>
   </div> 
   `;
-  document.querySelector(".card").classList.add("card_anime");
   setTimeout(() => {
-    document.querySelector(".card").classList.remove("card_anime");
-  }, 3000);
+    document.querySelectorAll(".card").forEach((el) => {
+      el.classList.remove("card_anime");
+    });
+    console.log('done')
+}, 3000);
+
   cardContainer.style.flexDirection = "row";
   addToDoInput.value = "";
 }
+// setInterval(() => {
+//     document.querySelectorAll(".card").forEach((el) => {
+//       el.classList.remove("card_anime");
+//     });
+// }, 3000);
