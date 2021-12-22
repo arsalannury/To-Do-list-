@@ -21,7 +21,8 @@ const addToDoInput = document.querySelector(".add_to_do_input");
 const closeToDoBtn = document.querySelector(".close_todo_btn");
 const iconCloseModal = document.querySelector(".icon_close_modal");
 const mainModalToDo = document.querySelector(".main_modal_add_todo");
-
+let homeLocalStorageArray = [];
+const homeLocalToJson = JSON.parse(localStorage.getItem('homeLocal'))
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
 const updateTime = setInterval(() => {
@@ -195,6 +196,7 @@ function addToDo() {
   }).showToast();
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
+  homeLocalFuntion();
   cardContainer.innerHTML += `
   <div class="card card_anime">
   <div class="card-body">
@@ -222,10 +224,9 @@ function addToDo() {
 }
 // add todo to list event end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-
-// when add card if darkmode was on 
+// when add card if darkmode was on
 // card has darkmode styles
-// and if light mode was on 
+// and if light mode was on
 // card has light mode style
 function styleCardDarkOrLightMode() {
   if (document.body.id === "true") {
@@ -258,4 +259,15 @@ function styleCardDarkOrLightMode() {
       .querySelectorAll(".card")
       .forEach((borderColor) => (borderColor.style.border = "1px solid #fff"));
   }
+}
+
+function homeLocalFuntion() {
+  homeLocalStorageArray.push({
+    time: new persianDate().format(),
+    text: addToDoInput.value,
+  });
+  const newItemTodoLocal = localStorage.setItem(
+    "homeLocal",
+    JSON.stringify(homeLocalStorageArray)
+  );
 }
