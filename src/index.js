@@ -22,7 +22,7 @@ const closeToDoBtn = document.querySelector(".close_todo_btn");
 const iconCloseModal = document.querySelector(".icon_close_modal");
 const mainModalToDo = document.querySelector(".main_modal_add_todo");
 let homeLocalStorageArray = [];
-const homeLocalToJson = JSON.parse(localStorage.getItem('homeLocal'))
+const homeLocalToJson = JSON.parse(localStorage.getItem("homeLocal"));
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
 const updateTime = setInterval(() => {
@@ -196,23 +196,8 @@ function addToDo() {
   }).showToast();
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
-  homeLocalFuntion();
-  cardContainer.innerHTML += `
-  <div class="card card_anime">
-  <div class="card-body">
-  <h6 class="card-subtitle mb-2">${new persianDate().format()}</h6>
-  <p class="card-text">
-    ${addToDoInput.value}
-  </p>
-
-  <div class='btn_card_container'>
-  <button type="button" class="btn btn-outline-success card_btn_css">Done</button>
-  <button type="button" class="btn btn-outline-danger card_btn_css">Delete</button>
-  </div>
-
-  </div>
-  </div> 
-  `;
+  pushToArraySetLocal();
+  innerHtmlCard();
   setTimeout(() => {
     document.querySelectorAll(".card").forEach((el) => {
       el.classList.remove("card_anime");
@@ -261,7 +246,32 @@ function styleCardDarkOrLightMode() {
   }
 }
 
-function homeLocalFuntion() {
+window.addEventListener('DOMContentLoaded',() => {
+  // after load show card and save array information
+  if (localStorage.getItem("homeLocal")) {
+    homeLocalStorageArray = homeLocalToJson;
+  } else {
+    homeLocalStorageArray = [];
+  }
+  afterLoadShowCard()
+  
+  
+})
+
+
+
+
+
+
+
+
+
+
+
+// functions to set and get local storage to show card in document |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+function pushToArraySetLocal() {
   homeLocalStorageArray.push({
     time: new persianDate().format(),
     text: addToDoInput.value,
@@ -270,4 +280,76 @@ function homeLocalFuntion() {
     "homeLocal",
     JSON.stringify(homeLocalStorageArray)
   );
+}
+
+
+  
+
+function innerHtmlCard() {
+  if (localStorage.getItem("homeLocal")) {
+
+    JSON.parse(localStorage.getItem("homeLocal")).forEach(
+
+      (cardContent, index) => {
+        cardContainer.innerHTML += `
+               <div class="card card_anime">
+               <div class="card-body">
+               <h6 class="card-subtitle mb-2">${cardContent.time}</h6>
+               <p class="card-text">
+                 ${cardContent.text}
+               </p>
+  
+               <div class='btn_card_container'>
+               <button type="button" class="btn btn-outline-success card_btn_css">Done</button>
+               <button type="button" class="btn btn-outline-danger card_btn_css">Delete</button>
+               </div>
+  
+               </div>
+               </div> 
+                     `;
+      }
+
+    );
+
+  }
+}
+
+function afterLoadShowCard() {
+  if (localStorage.getItem("homeLocal")) {
+
+    paragraphEmptyList.style.display = "none";
+    aquariumBody.style.display = "none";
+
+    setTimeout(() => {
+      document.querySelectorAll(".card").forEach((el) => {
+        el.classList.remove("card_anime");
+      });
+    }, 3000);
+
+    styleCardDarkOrLightMode();
+    cardContainer.style.flexDirection = "row";
+    addToDoInput.value = "";
+
+    JSON.parse(localStorage.getItem("homeLocal")).forEach(
+      (cardContent, index) => {
+        cardContainer.innerHTML += `
+    <div class="card card_anime">
+    <div class="card-body">
+    <h6 class="card-subtitle mb-2">${cardContent.time}</h6>
+    <p class="card-text">
+      ${cardContent.text}
+    </p>
+  
+    <div class='btn_card_container'>
+    <button type="button" class="btn btn-outline-success card_btn_css">Done</button>
+    <button type="button" class="btn btn-outline-danger card_btn_css">Delete</button>
+    </div>
+  
+    </div>
+    </div> 
+    `;
+      }
+    );
+    
+  }
 }
