@@ -246,35 +246,23 @@ function styleCardDarkOrLightMode() {
   }
 }
 
-window.addEventListener('DOMContentLoaded',() => {
+window.addEventListener("DOMContentLoaded", () => {
   // after load show card and save array information
   if (localStorage.getItem("homeLocal")) {
     homeLocalStorageArray = homeLocalToJson;
   } else {
     homeLocalStorageArray = [];
   }
-  afterLoadShowCard()
-  
-  
-})
-
-
-
-
-
-
-
-
-
-
+  afterLoadShowCard();
+});
 
 // functions to set and get local storage to show card in document |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
 
 function pushToArraySetLocal() {
   homeLocalStorageArray.push({
     time: new persianDate().format(),
     text: addToDoInput.value,
+    id: Math.floor(Math.random() * 1000000),
   });
   const newItemTodoLocal = localStorage.setItem(
     "homeLocal",
@@ -282,16 +270,13 @@ function pushToArraySetLocal() {
   );
 }
 
-
-  
-
 function innerHtmlCard() {
   if (localStorage.getItem("homeLocal")) {
-
-    JSON.parse(localStorage.getItem("homeLocal")).forEach(
-
-      (cardContent, index) => {
-        cardContainer.innerHTML += `
+    const sliceJson = JSON.parse(localStorage.getItem("homeLocal")).slice(
+      JSON.parse(localStorage.getItem("homeLocal")).length - 1
+    );
+    sliceJson.forEach((cardContent, index) => {
+      cardContainer.innerHTML += `
                <div class="card card_anime">
                <div class="card-body">
                <h6 class="card-subtitle mb-2">${cardContent.time}</h6>
@@ -307,32 +292,29 @@ function innerHtmlCard() {
                </div>
                </div> 
                      `;
-      }
-
-    );
-
+    });
   }
 }
 
 function afterLoadShowCard() {
-  if (localStorage.getItem("homeLocal")) {
+  if (!localStorage.getItem("homeLocal")) return;
 
-    paragraphEmptyList.style.display = "none";
-    aquariumBody.style.display = "none";
+  paragraphEmptyList.style.display = "none";
+  aquariumBody.style.display = "none";
 
-    setTimeout(() => {
-      document.querySelectorAll(".card").forEach((el) => {
-        el.classList.remove("card_anime");
-      });
-    }, 3000);
+  setTimeout(() => {
+    document.querySelectorAll(".card").forEach((el) => {
+      el.classList.remove("card_anime");
+    });
+  }, 3000);
 
-    styleCardDarkOrLightMode();
-    cardContainer.style.flexDirection = "row";
-    addToDoInput.value = "";
+  styleCardDarkOrLightMode();
+  cardContainer.style.flexDirection = "row";
+  addToDoInput.value = "";
 
-    JSON.parse(localStorage.getItem("homeLocal")).forEach(
-      (cardContent, index) => {
-        cardContainer.innerHTML += `
+  JSON.parse(localStorage.getItem("homeLocal")).forEach(
+    (cardContent, index) => {
+      cardContainer.innerHTML += `
     <div class="card card_anime">
     <div class="card-body">
     <h6 class="card-subtitle mb-2">${cardContent.time}</h6>
@@ -348,8 +330,6 @@ function afterLoadShowCard() {
     </div>
     </div> 
     `;
-      }
-    );
-    
-  }
+    }
+  );
 }
