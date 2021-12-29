@@ -13,4 +13,9 @@ module.exports = {
       },
     ],
   },
+  entry : {
+    home: { import: './src/index.js', filename: './dist/main.js' },
+    done: { import: './src/Done.js', filename: './dist/done.js' }
+  },
+  
 };

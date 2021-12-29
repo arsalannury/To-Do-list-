@@ -24,7 +24,7 @@
       crossorigin="anonymous"
     />
     <link href="dist/hamburgers.css" />
-    <title>Home Page</title>
+    <title>Done Page</title>
     <link rel="shortcut icon" href="../images/javascript.png" />
   </head>
   <body id="true">
@@ -89,15 +89,7 @@
     <!-- modal add item start ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 
     <div class="to_do_list">
-      <button
-        type="button"
-        class="btn btn-primary add_item_btn"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        <i class="bi bi-plus add_item_icon"></i>
-        Add Item To List
-      </button>
+
      <div class="card_container">
        <p class="nothing_to_do">Nothing to do</p>
        <div class="aquarium">
@@ -133,48 +125,6 @@
       </div>
     </div>
     </div>
-    <!-- Modal -->
-    <div
-      class="modal fade main_modal_add_todo"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button
-              type="button"
-              class="btn-close icon_close_modal"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control add_to_do_input"
-                placeholder="Add something to do..."
-                aria-label="Example text with button addon"
-                aria-describedby="button-addon1"
-              />
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary close_todo_btn"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button data-bs-dismiss="modal" type="button" class="btn btn-primary add_todo_btn">Add</button>
-          </div>
-        </div>
-      </div>
       <!-- modal add item End ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
     </div>
     <script
@@ -187,6 +137,6 @@
       integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
       crossorigin="anonymous"
     ></script>
-    <script src="../dist/dist/main.js"></script>
+    <script src="../dist/dist/done.js"></script>
   </body>
 </html>
