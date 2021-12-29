@@ -13,13 +13,13 @@ const hamburgerNavbarBtn = document.querySelector(".hamburger_navbar");
 
 
 
-
-
-
-
-
-
-
+// pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+const datePersian = document.querySelector(".date_persian");
+const updateTime = setInterval(() => {
+  var innerTexDateElement = new persianDate().format().toString();
+  datePersian.innerText = innerTexDateElement;
+}, 1000);
+// pesrian date show to navbar menu end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
 
