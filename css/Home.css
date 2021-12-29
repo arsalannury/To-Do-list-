@@ -1189,7 +1189,6 @@ body {
 }
 
 .card-subtitle {
-  font-weight: bold;
   text-align: center;
   transition: all 0.7s ease;
 }
