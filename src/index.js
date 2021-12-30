@@ -1,7 +1,6 @@
 import Toastify from "toastify-js";
 import persianDate from "persian-date";
-// import AOS from 'aos';
-// AOS.init()
+
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const darkModeIconSun = document.querySelector(".darkmode_icon_sun");
 const modalContent = document.querySelector(".modal-content");
@@ -277,7 +276,7 @@ function innerHtmlCard() {
     );
     sliceJson.forEach((cardContent, index) => {
       cardContainer.innerHTML += `
-               <div class="card card_anime">
+               <div id='${cardContent.id}' class="card card_anime">
                <div class="card-body">
                <h6 class="card-subtitle mb-2">${cardContent.time}</h6>
                <p class="card-text">
@@ -285,7 +284,7 @@ function innerHtmlCard() {
                </p>
   
                <div class='btn_card_container'>
-               <button type="button" class="btn btn-outline-success card_btn_css">Done</button>
+               <button type="button" class="btn done_btn btn-outline-success card_btn_css">Done</button>
                <button type="button" class="btn btn-outline-danger card_btn_css">Delete</button>
                </div>
   
@@ -294,6 +293,9 @@ function innerHtmlCard() {
                      `;
     });
   }
+  document.querySelector(".done_btn").addEventListener("click", (e) => {
+    doneBtnCard();
+  });
 }
 
 function afterLoadShowCard() {
@@ -315,7 +317,7 @@ function afterLoadShowCard() {
   JSON.parse(localStorage.getItem("homeLocal")).forEach(
     (cardContent, index) => {
       cardContainer.innerHTML += `
-    <div class="card card_anime">
+    <div id=${cardContent.id} class="card card_anime">
     <div class="card-body">
     <h6 class="card-subtitle mb-2">${cardContent.time}</h6>
     <p class="card-text">
@@ -323,7 +325,7 @@ function afterLoadShowCard() {
     </p>
   
     <div class='btn_card_container'>
-    <button type="button" class="btn btn-outline-success card_btn_css">Done</button>
+    <button type="button" class="btn done_btn btn-outline-success card_btn_css">Done</button>
     <button type="button" class="btn btn-outline-danger card_btn_css">Delete</button>
     </div>
   
@@ -332,4 +334,30 @@ function afterLoadShowCard() {
     `;
     }
   );
+  document.querySelector(".done_btn").addEventListener("click", (e) => {
+    doneBtnCard();
+  });
+}
+
+function doneBtnCard() {
+    const doneLocalStorage = localStorage.setItem(
+      "doneLocal",
+      JSON.stringify(
+        JSON.parse(localStorage.getItem("homeLocal")).filter(
+          (item) => item.id == document.querySelector(".card").id
+        )
+      )
+    );
+
+    // JSON.parse(localStorage.getItem("homeLocal")).forEach((cardItem, index) => {
+    //   localStorage.setItem(
+    //     "homeLocal",
+    //     JSON.stringify(
+    //       JSON.parse(localStorage.getItem("homeLocal")).splice(
+    //         index,
+    //         cardItem.id === document.querySelector(".card").id
+    //       )
+    //     )
+    //   );
+    // });
 }
