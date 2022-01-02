@@ -21,6 +21,8 @@ const closeToDoBtn = document.querySelector(".close_todo_btn");
 const iconCloseModal = document.querySelector(".icon_close_modal");
 const mainModalToDo = document.querySelector(".main_modal_add_todo");
 let homeLocalStorageArray = [];
+let doneLocalStorageArray = [];
+
 const homeLocalToJson = JSON.parse(localStorage.getItem("homeLocal"));
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
@@ -293,9 +295,24 @@ function innerHtmlCard() {
                      `;
     });
   }
-  document.querySelector(".done_btn").addEventListener("click", (e) => {
-    doneBtnCard();
-  });
+  // document.querySelector(".done_btn").addEventListener("click", (e) => {
+  //   doneBtnCard();
+  // });
+  document.querySelectorAll(".done_btn").forEach(btnElement => {
+    btnElement.addEventListener("click", (e) => {
+      const parseHomeLocal =  JSON.parse(localStorage.getItem("homeLocal")).filter(
+        (item) => item.id == e.target.parentElement.parentElement.parentElement.id
+      )
+      const resultFilter = parseHomeLocal[0];
+        doneLocalStorageArray.push(resultFilter)
+        const doneLocalStorage = localStorage.setItem(
+          "doneLocal",
+          JSON.stringify(
+           doneLocalStorageArray
+          )
+        );
+    });
+  })
 }
 
 function afterLoadShowCard() {
@@ -334,20 +351,34 @@ function afterLoadShowCard() {
     `;
     }
   );
-  document.querySelector(".done_btn").addEventListener("click", (e) => {
-    doneBtnCard();
-  });
+  document.querySelectorAll(".done_btn").forEach(btnElement => {
+    btnElement.addEventListener("click", (e) => {
+      const parseHomeLocal =  JSON.parse(localStorage.getItem("homeLocal")).filter(
+        (item) => item.id == e.target.parentElement.parentElement.parentElement.id
+      )
+      const resultFilter = parseHomeLocal[0];
+      doneLocalStorageArray.push(resultFilter)
+
+        const doneLocalStorage = localStorage.setItem(
+          "doneLocal",
+          JSON.stringify(
+           doneLocalStorageArray
+          )
+        );
+    });
+  })
 }
 
 function doneBtnCard() {
-    const doneLocalStorage = localStorage.setItem(
-      "doneLocal",
-      JSON.stringify(
-        JSON.parse(localStorage.getItem("homeLocal")).filter(
-          (item) => item.id == document.querySelector(".card").id
-        )
-      )
-    );
+  // const parseHomeLocal =  JSON.parse(localStorage.getItem("homeLocal")).filter(
+  //   (item) => item.id == document.querySelector(".card").id
+  // )
+  //   const doneLocalStorage = localStorage.setItem(
+  //     "doneLocal",
+  //     JSON.stringify(
+  //      parseHomeLocal
+  //     )
+  //   );
 
     // JSON.parse(localStorage.getItem("homeLocal")).forEach((cardItem, index) => {
     //   localStorage.setItem(
