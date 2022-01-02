@@ -17,13 +17,13 @@ const paragraphEmptyList = document.querySelector(".nothing_to_do");
 const cardContainer = document.querySelector(".card_container");
 const addToDoBtn = document.querySelector(".add_todo_btn");
 const addToDoInput = document.querySelector(".add_to_do_input");
-const closeToDoBtn = document.querySelector(".close_todo_btn");
-const iconCloseModal = document.querySelector(".icon_close_modal");
 const mainModalToDo = document.querySelector(".main_modal_add_todo");
 let homeLocalStorageArray = [];
 let doneLocalStorageArray = [];
 
 const homeLocalToJson = JSON.parse(localStorage.getItem("homeLocal"));
+const doneLocalToJson = JSON.parse(localStorage.getItem("doneLocal"));
+
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
 const updateTime = setInterval(() => {
@@ -247,6 +247,8 @@ function styleCardDarkOrLightMode() {
   }
 }
 
+
+//  : : : : : : load page with local storage value start
 window.addEventListener("DOMContentLoaded", () => {
   // after load show card and save array information
   if (localStorage.getItem("homeLocal")) {
@@ -254,8 +256,15 @@ window.addEventListener("DOMContentLoaded", () => {
   } else {
     homeLocalStorageArray = [];
   }
+  if(localStorage.getItem('doneLocal')) {
+    doneLocalStorageArray = doneLocalToJson;
+  }else {
+    doneLocalStorageArray = [];
+  }
   afterLoadShowCard();
 });
+//  : : : : : : load page with local storage value end
+
 
 // functions to set and get local storage to show card in document |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -295,9 +304,8 @@ function innerHtmlCard() {
                      `;
     });
   }
-  // document.querySelector(".done_btn").addEventListener("click", (e) => {
-  //   doneBtnCard();
-  // });
+  
+
   document.querySelectorAll(".done_btn").forEach(btnElement => {
     btnElement.addEventListener("click", (e) => {
       const parseHomeLocal =  JSON.parse(localStorage.getItem("homeLocal")).filter(
@@ -313,6 +321,7 @@ function innerHtmlCard() {
         );
     });
   })
+
 }
 
 function afterLoadShowCard() {
@@ -351,6 +360,7 @@ function afterLoadShowCard() {
     `;
     }
   );
+
   document.querySelectorAll(".done_btn").forEach(btnElement => {
     btnElement.addEventListener("click", (e) => {
       const parseHomeLocal =  JSON.parse(localStorage.getItem("homeLocal")).filter(
@@ -367,28 +377,7 @@ function afterLoadShowCard() {
         );
     });
   })
+
 }
 
-function doneBtnCard() {
-  // const parseHomeLocal =  JSON.parse(localStorage.getItem("homeLocal")).filter(
-  //   (item) => item.id == document.querySelector(".card").id
-  // )
-  //   const doneLocalStorage = localStorage.setItem(
-  //     "doneLocal",
-  //     JSON.stringify(
-  //      parseHomeLocal
-  //     )
-  //   );
 
-    // JSON.parse(localStorage.getItem("homeLocal")).forEach((cardItem, index) => {
-    //   localStorage.setItem(
-    //     "homeLocal",
-    //     JSON.stringify(
-    //       JSON.parse(localStorage.getItem("homeLocal")).splice(
-    //         index,
-    //         cardItem.id === document.querySelector(".card").id
-    //       )
-    //     )
-    //   );
-    // });
-}
