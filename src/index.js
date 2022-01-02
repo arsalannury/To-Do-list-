@@ -210,10 +210,10 @@ function addToDo() {
 }
 // add todo to list event end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-// when add card if darkmode was on
+// when add card ,if darkmode was on
 // card has darkmode styles
 // and if light mode was on
-// card has light mode style
+// card has light mode styles
 function styleCardDarkOrLightMode() {
   if (document.body.id === "true") {
     document
@@ -247,7 +247,6 @@ function styleCardDarkOrLightMode() {
   }
 }
 
-
 //  : : : : : : load page with local storage value start
 window.addEventListener("DOMContentLoaded", () => {
   // after load show card and save array information
@@ -256,15 +255,14 @@ window.addEventListener("DOMContentLoaded", () => {
   } else {
     homeLocalStorageArray = [];
   }
-  if(localStorage.getItem('doneLocal')) {
+  if (localStorage.getItem("doneLocal")) {
     doneLocalStorageArray = doneLocalToJson;
-  }else {
+  } else {
     doneLocalStorageArray = [];
   }
   afterLoadShowCard();
 });
 //  : : : : : : load page with local storage value end
-
 
 // functions to set and get local storage to show card in document |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -304,24 +302,31 @@ function innerHtmlCard() {
                      `;
     });
   }
-  
-
-  document.querySelectorAll(".done_btn").forEach(btnElement => {
+  //  set done local after DONE btn click
+  document.querySelectorAll(".done_btn").forEach((btnElement) => {
     btnElement.addEventListener("click", (e) => {
-      const parseHomeLocal =  JSON.parse(localStorage.getItem("homeLocal")).filter(
-        (item) => item.id == e.target.parentElement.parentElement.parentElement.id
-      )
+      const parseHomeLocal = JSON.parse(
+        localStorage.getItem("homeLocal")
+      ).filter(
+        (item) =>
+          item.id == e.target.parentElement.parentElement.parentElement.id
+      );
       const resultFilter = parseHomeLocal[0];
-        doneLocalStorageArray.push(resultFilter)
-        const doneLocalStorage = localStorage.setItem(
-          "doneLocal",
-          JSON.stringify(
-           doneLocalStorageArray
-          )
-        );
-    });
-  })
+      doneLocalStorageArray.push(resultFilter);
+      const doneLocalStorage = localStorage.setItem(
+        "doneLocal",
+        JSON.stringify(doneLocalStorageArray)
+      );
 
+      const findDoneCard = JSON.parse(
+        localStorage.getItem("homeLocal")
+      ).findIndex((item) => {
+        item.id === e.target.parentElement.parentElement.parentElement.id;
+      });
+     const spliceHomeLocal = JSON.parse(localStorage.getItem("homeLocal")).splice(findDoneCard,1);
+    //  localStorage.setItem('homeLocal',JSON.stringify(spliceHomeLocal))
+    });
+  });
 }
 
 function afterLoadShowCard() {
@@ -360,24 +365,37 @@ function afterLoadShowCard() {
     `;
     }
   );
-
-  document.querySelectorAll(".done_btn").forEach(btnElement => {
+  //  set done local after DONE btn click
+  document.querySelectorAll(".done_btn").forEach((btnElement) => {
     btnElement.addEventListener("click", (e) => {
-      const parseHomeLocal =  JSON.parse(localStorage.getItem("homeLocal")).filter(
-        (item) => item.id == e.target.parentElement.parentElement.parentElement.id
-      )
+      const parseHomeLocal = JSON.parse(
+        localStorage.getItem("homeLocal")
+      ).filter(
+        (item) =>
+          item.id == e.target.parentElement.parentElement.parentElement.id
+      );
       const resultFilter = parseHomeLocal[0];
-      doneLocalStorageArray.push(resultFilter)
+      doneLocalStorageArray.push(resultFilter);
 
-        const doneLocalStorage = localStorage.setItem(
-          "doneLocal",
-          JSON.stringify(
-           doneLocalStorageArray
-          )
-        );
+      const doneLocalStorage = localStorage.setItem(
+        "doneLocal",
+        JSON.stringify(doneLocalStorageArray)
+      );
+
+      const findDoneCard = JSON.parse(
+        localStorage.getItem("homeLocal")
+      ).findIndex((item) => {
+        item.id === e.target.parentElement.parentElement.parentElement.id;
+      });
+      JSON.parse(localStorage.getItem("homeLocal")).splice(findDoneCard,1);
+      // localStorage.setItem('homeLocal',JSON.stringify(spliceHomeLocal))
     });
-  })
-
+  });
 }
 
-
+// function editHomeLocalAfterDone(){
+//   const findDoneCard = JSON.parse(localStorage.getItem("homeLocal")).findIndex(item => {
+//     item.id === e.target.parentElement.parentElement.parentElement.id;
+//   })
+//   JSON.parse(localStorage.getItem("homeLocal")).splice(findDoneCard,0);
+// }
