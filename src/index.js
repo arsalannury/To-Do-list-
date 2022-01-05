@@ -302,32 +302,9 @@ function innerHtmlCard() {
                      `;
     });
   }
-  //  set done local after DONE btn click
-  document.querySelectorAll(".done_btn").forEach((btnElement) => {
-    btnElement.addEventListener("click", (e) => {
-      const parseHomeLocal = JSON.parse(
-        localStorage.getItem("homeLocal")
-      ).filter(
-        (item) =>
-          item.id == e.target.parentElement.parentElement.parentElement.id
-      );
-      const resultFilter = parseHomeLocal[0];
-      doneLocalStorageArray.push(resultFilter);
-      const doneLocalStorage = localStorage.setItem(
-        "doneLocal",
-        JSON.stringify(doneLocalStorageArray)
-      );
-
-      const findDoneCard = JSON.parse(
-        localStorage.getItem("homeLocal")
-      ).findIndex((item) => {
-        item.id === e.target.parentElement.parentElement.parentElement.id;
-      });
-     const spliceHomeLocal = JSON.parse(localStorage.getItem("homeLocal")).splice(findDoneCard,1);
-    //  localStorage.setItem('homeLocal',JSON.stringify(spliceHomeLocal))
-    });
-  });
+  doneCardEvent()
 }
+
 
 function afterLoadShowCard() {
   if (!localStorage.getItem("homeLocal")) return;
@@ -365,6 +342,10 @@ function afterLoadShowCard() {
     `;
     }
   );
+  doneCardEvent()
+}
+
+function doneCardEvent(){
   //  set done local after DONE btn click
   document.querySelectorAll(".done_btn").forEach((btnElement) => {
     btnElement.addEventListener("click", (e) => {
@@ -387,15 +368,19 @@ function afterLoadShowCard() {
       ).findIndex((item) => {
         item.id === e.target.parentElement.parentElement.parentElement.id;
       });
-      JSON.parse(localStorage.getItem("homeLocal")).splice(findDoneCard,1);
-      // localStorage.setItem('homeLocal',JSON.stringify(spliceHomeLocal))
+      const spliceHomeLocal = JSON.parse(localStorage.getItem("homeLocal")).filter(item => item.id != e.target.parentElement.parentElement.parentElement.id)
+      localStorage.setItem('homeLocal',JSON.stringify(spliceHomeLocal));
+      Toastify({
+        text: "Well Done",
+        duration: 3000,
+        position: "center",
+        gravity: "bottom",
+        style: {
+          background: "#38b000",
+          color: "#fff",
+        },
+      }).showToast();
     });
+    location.reload()
   });
 }
-
-// function editHomeLocalAfterDone(){
-//   const findDoneCard = JSON.parse(localStorage.getItem("homeLocal")).findIndex(item => {
-//     item.id === e.target.parentElement.parentElement.parentElement.id;
-//   })
-//   JSON.parse(localStorage.getItem("homeLocal")).splice(findDoneCard,0);
-// }
