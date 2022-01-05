@@ -302,12 +302,11 @@ function innerHtmlCard() {
                      `;
     });
   }
-  doneCardEvent()
+  doneCardEvent();
 }
 
-
 function afterLoadShowCard() {
-  if (!localStorage.getItem("homeLocal")) return;
+  if (localStorage.getItem("homeLocal").length <= 2) return;
 
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
@@ -342,10 +341,10 @@ function afterLoadShowCard() {
     `;
     }
   );
-  doneCardEvent()
+  doneCardEvent();
 }
 
-function doneCardEvent(){
+function doneCardEvent() {
   //  set done local after DONE btn click
   document.querySelectorAll(".done_btn").forEach((btnElement) => {
     btnElement.addEventListener("click", (e) => {
@@ -368,8 +367,13 @@ function doneCardEvent(){
       ).findIndex((item) => {
         item.id === e.target.parentElement.parentElement.parentElement.id;
       });
-      const spliceHomeLocal = JSON.parse(localStorage.getItem("homeLocal")).filter(item => item.id != e.target.parentElement.parentElement.parentElement.id)
-      localStorage.setItem('homeLocal',JSON.stringify(spliceHomeLocal));
+      const spliceHomeLocal = JSON.parse(
+        localStorage.getItem("homeLocal")
+      ).filter(
+        (item) =>
+          item.id != e.target.parentElement.parentElement.parentElement.id
+      );
+      localStorage.setItem("homeLocal", JSON.stringify(spliceHomeLocal));
       Toastify({
         text: "Well Done",
         duration: 3000,
@@ -380,7 +384,10 @@ function doneCardEvent(){
           color: "#fff",
         },
       }).showToast();
+
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
     });
-    location.reload()
   });
 }
