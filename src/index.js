@@ -2,7 +2,6 @@ import Toastify from "toastify-js";
 import persianDate from "persian-date";
 
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
-const darkModeIconSun = document.querySelector(".darkmode_icon_sun");
 const modalContent = document.querySelector(".modal-content");
 const modalBackdrop = document.getElementById("exampleModal");
 const aquariumBody = document.querySelector(".aquarium");
@@ -362,11 +361,6 @@ function doneCardEvent() {
         JSON.stringify(doneLocalStorageArray)
       );
 
-      const findDoneCard = JSON.parse(
-        localStorage.getItem("homeLocal")
-      ).findIndex((item) => {
-        item.id === e.target.parentElement.parentElement.parentElement.id;
-      });
       const spliceHomeLocal = JSON.parse(
         localStorage.getItem("homeLocal")
       ).filter(
