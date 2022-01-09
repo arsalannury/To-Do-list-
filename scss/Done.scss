@@ -197,6 +197,14 @@ $hamburgerIconColor: #aaa;
     color: #111;
     transition: all 0.7s ease;
   }
+  .card_footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .card_image_footer{
+      width : 70px;
+    }
+  }
   .card_btn_css{
     padding: 3px 15px !important;
   }

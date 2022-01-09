@@ -10,8 +10,9 @@ const navbarSvg = document.querySelectorAll(".navbar_svg path");
 const navbarListItem = document.querySelectorAll(".menu_container ul li");
 const navbarBackdrop = document.querySelector(".backdrop");
 const hamburgerNavbarBtn = document.querySelector(".hamburger_navbar");
-
-
+const getLocalStorageToJson = JSON.parse(localStorage.getItem('doneLocal'))
+const cardContainer = document.querySelector(".card_container");
+const paragraphEmptyList = document.querySelector(".nothing_to_do");
 
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
@@ -146,4 +147,31 @@ hamburgerNavbarBtn.addEventListener("click", (e) => {
     hamburgerNavbarBtn.id = "true";
   }
   // show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+  const showCardAfterLoad = () => {
+    window.addEventListener('load',(e) => {
+      if(getLocalStorageToJson){
+        aquariumBody.style.display = 'none';
+        paragraphEmptyList.style.display = 'none';
+        getLocalStorageToJson.forEach((item,index) => {
+
+         cardContainer.innerHTML +=`
+         <div id='${item.id}' class="card card_anime">
+         <div class="card-body">
+         <p class="card-subtitle">${item.time}</p>
+         <p class="card-text">
+           ${item.text}
+         </p>
+         </div>
+         <div class="card_footer">
+           <img class="card_image_footer" src="../images/icons8-ok.svg" />
+         </div>
+         </div> 
+
+         `
+        })
+      }
+    })
+  }
+  showCardAfterLoad()
   
