@@ -1,5 +1,6 @@
 import Toastify from "toastify-js";
 import persianDate from "persian-date";
+import changeLocation from '../module/location';
 
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const modalContent = document.querySelector(".modal-content");
@@ -25,6 +26,7 @@ const homeLocalToJson = JSON.parse(localStorage.getItem("homeLocal"));
 const doneLocalToJson = JSON.parse(localStorage.getItem("doneLocal"));
 const delLocalToJson = JSON.parse(localStorage.getItem("DeleteLocal"));
 
+changeLocation()
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
 const updateTime = setInterval(() => {
@@ -418,3 +420,9 @@ function doneAndDeleteCardEvent(
     });
   });
 }
+
+
+
+// link btn change page |||||||||||||||||||||||||||||||||||\
+
+
