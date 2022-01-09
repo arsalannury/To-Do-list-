@@ -108,6 +108,19 @@ $hamburgerIconColor: #aaa;
 // aquarium sponge style End : : : : : : : : : : : :
 
 
+// add btn and search styles start
+.add_btn_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  .search_container{
+    
+  }
+}
+// add btn and search styles end
+
+
 // svg navbar style start : : : : : : : : : : : :
 .navbar_svg {
   transition: all 0.7s ease;

@@ -148,6 +148,10 @@ function navbarBtnHandlerHide() {
 }
 // show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
+
+
+// after load page
+// show card when we have done local storage
 const showCardAfterLoad = () => {
   window.addEventListener("load", (e) => {
     if (getLocalStorageToJson) {
