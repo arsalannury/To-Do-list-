@@ -19,9 +19,11 @@ const addToDoInput = document.querySelector(".add_to_do_input");
 const mainModalToDo = document.querySelector(".main_modal_add_todo");
 let homeLocalStorageArray = [];
 let doneLocalStorageArray = [];
+let delLocalStorageArray = [];
 
 const homeLocalToJson = JSON.parse(localStorage.getItem("homeLocal"));
 const doneLocalToJson = JSON.parse(localStorage.getItem("doneLocal"));
+const delLocalToJson = JSON.parse(localStorage.getItem("DeleteLocal"));
 
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
@@ -248,17 +250,15 @@ function styleCardDarkOrLightMode() {
 
 //  : : : : : : load page with local storage value start
 window.addEventListener("DOMContentLoaded", () => {
-  // after load show card and save array information
-  if (localStorage.getItem("homeLocal")) {
-    homeLocalStorageArray = homeLocalToJson;
-  } else {
-    homeLocalStorageArray = [];
-  }
-  if (localStorage.getItem("doneLocal")) {
-    doneLocalStorageArray = doneLocalToJson;
-  } else {
-    doneLocalStorageArray = [];
-  }
+  localStorage.getItem("homeLocal")
+    ? (homeLocalStorageArray = homeLocalToJson)
+    : (homeLocalStorageArray = []);
+  localStorage.getItem("doneLocal")
+    ? (doneLocalStorageArray = doneLocalToJson)
+    : (doneLocalStorageArray = []);
+  localStorage.getItem("DeleteLocal")
+    ? (delLocalStorageArray = delLocalToJson)
+    : (delLocalStorageArray = []);
   afterLoadShowCard();
 });
 //  : : : : : : load page with local storage value end
@@ -293,7 +293,7 @@ function innerHtmlCard() {
   
                <div class='btn_card_container'>
                <button type="button" class="btn done_btn btn-outline-success card_btn_css">Done</button>
-               <button type="button" class="btn btn-outline-danger card_btn_css">Delete</button>
+               <button type="button" class="btn del_btn btn-outline-danger card_btn_css">Delete</button>
                </div>
   
                </div>
@@ -301,10 +301,24 @@ function innerHtmlCard() {
                      `;
     });
   }
-  doneCardEvent();
+  doneAndDeleteCardEvent(
+    "doneLocal",
+    ".done_btn",
+    "Well Done",
+    "#38b000",
+    doneLocalStorageArray
+  );
+  doneAndDeleteCardEvent(
+    "DeleteLocal",
+    ".del_btn",
+    "Item Deleted",
+    "#d00000",
+    delLocalStorageArray
+  );
 }
 
 function afterLoadShowCard() {
+  if (!localStorage.getItem("homeLocal")) return;
   if (localStorage.getItem("homeLocal").length <= 2) return;
 
   paragraphEmptyList.style.display = "none";
@@ -332,7 +346,7 @@ function afterLoadShowCard() {
   
     <div class='btn_card_container'>
     <button type="button" class="btn done_btn btn-outline-success card_btn_css">Done</button>
-    <button type="button" class="btn btn-outline-danger card_btn_css">Delete</button>
+    <button type="button" class="btn del_btn btn-outline-danger card_btn_css">Delete</button>
     </div>
   
     </div>
@@ -340,12 +354,31 @@ function afterLoadShowCard() {
     `;
     }
   );
-  doneCardEvent();
+  doneAndDeleteCardEvent(
+    "doneLocal",
+    ".done_btn",
+    "Well Done",
+    "#38b000",
+    doneLocalStorageArray
+  );
+  doneAndDeleteCardEvent(
+    "DeleteLocal",
+    ".del_btn",
+    "Item Deleted",
+    "#d00000",
+    delLocalStorageArray
+  );
 }
 
-function doneCardEvent() {
+function doneAndDeleteCardEvent(
+  localName,
+  elementEvent,
+  textToastify,
+  colorToatify,
+  localArray
+) {
   //  set done local after DONE btn click
-  document.querySelectorAll(".done_btn").forEach((btnElement) => {
+  document.querySelectorAll(elementEvent).forEach((btnElement) => {
     btnElement.addEventListener("click", (e) => {
       const parseHomeLocal = JSON.parse(
         localStorage.getItem("homeLocal")
@@ -354,11 +387,11 @@ function doneCardEvent() {
           item.id == e.target.parentElement.parentElement.parentElement.id
       );
       const resultFilter = parseHomeLocal[0];
-      doneLocalStorageArray.push(resultFilter);
+      localArray.push(resultFilter);
 
       const doneLocalStorage = localStorage.setItem(
-        "doneLocal",
-        JSON.stringify(doneLocalStorageArray)
+        localName,
+        JSON.stringify(localArray)
       );
 
       const spliceHomeLocal = JSON.parse(
@@ -369,12 +402,12 @@ function doneCardEvent() {
       );
       localStorage.setItem("homeLocal", JSON.stringify(spliceHomeLocal));
       Toastify({
-        text: "Well Done",
+        text: textToastify,
         duration: 3000,
         position: "center",
         gravity: "bottom",
         style: {
-          background: "#38b000",
+          background: colorToatify,
           color: "#fff",
         },
       }).showToast();
