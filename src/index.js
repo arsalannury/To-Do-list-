@@ -416,7 +416,7 @@ function doneAndDeleteCardEvent(
 
       setTimeout(() => {
         location.reload();
-      }, 2000);
+      }, 500);
     });
   });
 }
