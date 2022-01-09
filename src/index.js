@@ -267,7 +267,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function pushToArraySetLocal() {
   homeLocalStorageArray.push({
-    time: new persianDate().format(),
+    time: new persianDate().format("dddd, DD MMMM YYYY, h:mm:ss a"),
     text: addToDoInput.value,
     id: Math.floor(Math.random() * 1000000),
   });
@@ -286,7 +286,7 @@ function innerHtmlCard() {
       cardContainer.innerHTML += `
                <div id='${cardContent.id}' class="card card_anime">
                <div class="card-body">
-               <h6 class="card-subtitle mb-2">${cardContent.time}</h6>
+               <p class="card-subtitle">${cardContent.time}</p>
                <p class="card-text">
                  ${cardContent.text}
                </p>
@@ -339,7 +339,7 @@ function afterLoadShowCard() {
       cardContainer.innerHTML += `
     <div id=${cardContent.id} class="card card_anime">
     <div class="card-body">
-    <h6 class="card-subtitle mb-2">${cardContent.time}</h6>
+    <p class="card-subtitle">${cardContent.time}</p>
     <p class="card-text">
       ${cardContent.text}
     </p>
@@ -377,7 +377,7 @@ function doneAndDeleteCardEvent(
   colorToatify,
   localArray
 ) {
-  //  set done local after DONE btn click
+  //  set done/delete local after DONE/DELETE btn click
   document.querySelectorAll(elementEvent).forEach((btnElement) => {
     btnElement.addEventListener("click", (e) => {
       const parseHomeLocal = JSON.parse(
