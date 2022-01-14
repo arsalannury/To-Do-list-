@@ -1,6 +1,6 @@
 import Toastify from "toastify-js";
 import persianDate from "persian-date";
-import changeLocation from '../module/location';
+import changeLocation from "../module/location";
 
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const modalContent = document.querySelector(".modal-content");
@@ -18,7 +18,7 @@ const cardContainer = document.querySelector(".card_container");
 const addToDoBtn = document.querySelector(".add_todo_btn");
 const addToDoInput = document.querySelector(".add_to_do_input");
 const mainModalToDo = document.querySelector(".main_modal_add_todo");
-const search = document.querySelector('.search_container');
+const search = document.querySelector(".search_container");
 let homeLocalStorageArray = [];
 let doneLocalStorageArray = [];
 let delLocalStorageArray = [];
@@ -27,7 +27,7 @@ const homeLocalToJson = JSON.parse(localStorage.getItem("homeLocal"));
 const doneLocalToJson = JSON.parse(localStorage.getItem("doneLocal"));
 const delLocalToJson = JSON.parse(localStorage.getItem("DeleteLocal"));
 
-changeLocation()
+changeLocation();
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
 const updateTime = setInterval(() => {
@@ -201,7 +201,7 @@ function addToDo() {
   }).showToast();
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
-  search.style.display = 'block'; 
+  search.style.display = "block";
   pushToArraySetLocal();
   innerHtmlCard();
   setTimeout(() => {
@@ -327,8 +327,8 @@ function afterLoadShowCard() {
 
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
-  search.style.display = 'block'; 
-  
+  search.style.display = "block";
+
   setTimeout(() => {
     document.querySelectorAll(".card").forEach((el) => {
       el.classList.remove("card_anime");
@@ -424,8 +424,14 @@ function doneAndDeleteCardEvent(
   });
 }
 
+// search in card start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||\
 
-
-// link btn change page |||||||||||||||||||||||||||||||||||\
-
-
+search.addEventListener("input", (e) => {
+  document.querySelectorAll(".card .card-body .card-text").forEach((text) => {
+    if (text.innerText.toLowerCase().includes(e.target.value.toLowerCase())) {
+      text.parentElement.parentElement.style.display = "flex";
+    } else {
+      text.parentElement.parentElement.style.display = "none";
+    }
+  });
+});
