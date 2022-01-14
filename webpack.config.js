@@ -15,7 +15,8 @@ module.exports = {
   },
   entry : {
     home: { import: './src/index.js', filename: './dist/main.js' },
-    done: { import: './src/Done.js', filename: './dist/done.js' }
+    done: { import: './src/Done.js', filename: './dist/done.js' },
+    delete : {import: './src/Delete.js', filename: './dist/delete.js'},
   },
   
 };
