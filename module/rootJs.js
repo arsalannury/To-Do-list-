@@ -24,7 +24,6 @@ export function darkModeStyles() {
     },
   }).showToast();
   document.body.style.backgroundColor = "#111";
-  document.body.style.color = "#fff";
   darkModeIconMoon.className = "bi bi-brightness-high darkmode_icon_sun";
   if(modalContent){
     modalContent.style.backgroundColor = "#aaa";
@@ -68,7 +67,6 @@ export function lightModeStyles() {
     duration: 3000,
   }).showToast();
   document.body.style.backgroundColor = "#fff";
-  document.body.style.color = "unset";
   darkModeIconMoon.className = "bi bi-moon darkmode_icon";
   if(modalContent){
     modalContent.style.backgroundColor = "#fff";

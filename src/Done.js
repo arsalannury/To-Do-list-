@@ -9,11 +9,6 @@ import {
 }from '../module/rootJs';
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const aquariumBody = document.querySelector(".aquarium");
-const aquariumTable = document.querySelector(".aquarium__table");
-const aquariumAquarium = document.querySelector(".aquarium__aquarium");
-const navbarContainer = document.querySelector(".menu_container");
-const navbarSvg = document.querySelectorAll(".navbar_svg path");
-const navbarListItem = document.querySelectorAll(".menu_container ul li");
 const navbarBackdrop = document.querySelector(".backdrop");
 const hamburgerNavbarBtn = document.querySelector(".hamburger_navbar");
 const getLocalStorageToJson = JSON.parse(localStorage.getItem("doneLocal"));
@@ -24,7 +19,6 @@ changeLocation();
 
 
 // light and dark Mode web page start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
 darkModeIconMoon.addEventListener("click", (e) => {
   if (document.body.id === "true") {
     darkModeStyles();
@@ -32,12 +26,9 @@ darkModeIconMoon.addEventListener("click", (e) => {
     lightModeStyles();
   }
 });
-
-
 // light Mode and dark mode web page end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 // show and hide navbar start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
 hamburgerNavbarBtn.addEventListener("click", (e) => {
   if (hamburgerNavbarBtn.id === "true") {
     navbarBtnHandlerShow();
@@ -49,8 +40,6 @@ hamburgerNavbarBtn.addEventListener("click", (e) => {
 navbarBackdrop.addEventListener("click", (e) => {
   navbarBtnHandlerHide();
 });
-
-
 // show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
