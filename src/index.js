@@ -18,6 +18,7 @@ const cardContainer = document.querySelector(".card_container");
 const addToDoBtn = document.querySelector(".add_todo_btn");
 const addToDoInput = document.querySelector(".add_to_do_input");
 const mainModalToDo = document.querySelector(".main_modal_add_todo");
+const search = document.querySelector('.search_container');
 let homeLocalStorageArray = [];
 let doneLocalStorageArray = [];
 let delLocalStorageArray = [];
@@ -200,6 +201,7 @@ function addToDo() {
   }).showToast();
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
+  search.style.display = 'block'; 
   pushToArraySetLocal();
   innerHtmlCard();
   setTimeout(() => {
@@ -325,7 +327,8 @@ function afterLoadShowCard() {
 
   paragraphEmptyList.style.display = "none";
   aquariumBody.style.display = "none";
-
+  search.style.display = 'block'; 
+  
   setTimeout(() => {
     document.querySelectorAll(".card").forEach((el) => {
       el.classList.remove("card_anime");

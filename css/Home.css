@@ -1100,8 +1100,19 @@ body {
 .add_btn_container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  position: relative;
+  flex-wrap: wrap;
   width: 100%;
+}
+
+.search_container {
+  padding-top: 20px;
+  display: none;
+}
+
+.search_container label {
+  padding-top: 36px !important;
 }
 
 .navbar_svg {
