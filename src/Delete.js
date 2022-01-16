@@ -26,7 +26,6 @@ const updateTime = setInterval(() => {
 // pesrian date show to navbar menu end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 // light and dark Mode web page start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
 darkModeIconMoon.addEventListener("click", (e) => {
   if (document.body.id === "true") {
     darkModeStyles();
@@ -34,10 +33,10 @@ darkModeIconMoon.addEventListener("click", (e) => {
     lightModeStyles();
   }
 });
+// light and dark Mode web page end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
 // show and hide navbar start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
 hamburgerNavbarBtn.addEventListener("click", (e) => {
   if (hamburgerNavbarBtn.id === "true") {
     navbarBtnHandlerShow();

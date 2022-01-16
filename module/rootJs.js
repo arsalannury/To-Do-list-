@@ -31,9 +31,11 @@ export function darkModeStyles() {
   if(modalContent){
     modalContent.style.backgroundColor = "#aaa";
   }
-  aquariumBody.style.backgroundColor = "#111";
-  aquariumTable.style.backgroundColor = "#fff";
-  aquariumAquarium.style.borderColor = "#fff";
+  if(aquariumBody){
+    aquariumBody.style.backgroundColor = "#111";
+    aquariumTable.style.backgroundColor = "#fff";
+    aquariumAquarium.style.borderColor = "#fff";
+  }
   if (document.querySelector(".card")) {
     document
       .querySelectorAll(".card-subtitle")
@@ -75,9 +77,11 @@ export function lightModeStyles() {
   if(modalContent){
     modalContent.style.backgroundColor = "#fff";
   }
-  aquariumBody.style.backgroundColor = "#fff";
-  aquariumTable.style.backgroundColor = "#000";
-  aquariumAquarium.style.borderColor = "#000";
+  if(aquariumBody){
+    aquariumBody.style.backgroundColor = "#fff";
+    aquariumTable.style.backgroundColor = "#000";
+    aquariumAquarium.style.borderColor = "#000";
+  }
   if (document.querySelector(".card")) {
     document
       .querySelectorAll(".card-subtitle")
