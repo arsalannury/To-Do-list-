@@ -10,6 +10,8 @@ const navbarBackdrop = document.querySelector(".backdrop");
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const navbarSvg = document.querySelectorAll(".navbar_svg path");
 const navbarListItem = document.querySelectorAll(".menu_container ul li");
+const datePersian = document.querySelector(".date_persian");
+
 // light and dark Mode web page start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 export function darkModeStyles() {
@@ -24,6 +26,7 @@ export function darkModeStyles() {
     },
   }).showToast();
   document.body.style.backgroundColor = "#111";
+  datePersian.style.color = "#fff";
   darkModeIconMoon.className = "bi bi-brightness-high darkmode_icon_sun";
   if(modalContent){
     modalContent.style.backgroundColor = "#aaa";
@@ -67,6 +70,7 @@ export function lightModeStyles() {
     duration: 3000,
   }).showToast();
   document.body.style.backgroundColor = "#fff";
+  datePersian.style.color = "#000";
   darkModeIconMoon.className = "bi bi-moon darkmode_icon";
   if(modalContent){
     modalContent.style.backgroundColor = "#fff";

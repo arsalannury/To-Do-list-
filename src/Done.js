@@ -17,6 +17,13 @@ const paragraphEmptyList = document.querySelector(".nothing_to_do");
 
 changeLocation();
 
+// pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+const datePersian = document.querySelector(".date_persian");
+const updateTime = setInterval(() => {
+  var innerTexDateElement = new persianDate().format().toString();
+  datePersian.innerText = innerTexDateElement;
+}, 1000);
+// pesrian date show to navbar menu end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 // light and dark Mode web page start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 darkModeIconMoon.addEventListener("click", (e) => {

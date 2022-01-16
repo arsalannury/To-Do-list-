@@ -1,0 +1,35 @@
+@import './root';
+
+// card and card body start : : : : : : : : : : : : ::
+.card{
+    width: 300px;
+    margin: 30px;
+    transition: all 0.7s ease;
+  
+  .card-subtitle{
+    text-align: center;
+    transition: all 0.7s ease;
+    font-size: .8em;
+  }
+  .card-text{
+    margin: 30px;
+    color: #111;
+    transition: all 0.7s ease;
+  }
+  .card_footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .card_image_footer{
+      width : 70px;
+    }
+  }
+}
+.card_anime{
+  animation: anime 2s ease 1 ;
+}
+@keyframes anime {
+  from {transform: translateY(-200px);}
+  to {transform: translateY(0);}
+}
+  // card and card body end
