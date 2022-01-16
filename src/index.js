@@ -202,7 +202,7 @@ function afterLoadShowCard() {
   JSON.parse(localStorage.getItem("homeLocal")).forEach(
     (cardContent, index) => {
       cardContainer.innerHTML += `
-    <div id=${cardContent.id} class="card card_anime">
+    <div id=${cardContent.id} class="card">
     <div class="card-body">
     <p class="card-subtitle">${cardContent.time}</p>
     <p class="card-text">

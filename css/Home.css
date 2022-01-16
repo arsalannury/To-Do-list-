@@ -1072,6 +1072,41 @@ body {
   left: 3px;
 }
 
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  background-color: #aaa !important;
+}
+
+.to_do_list {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  padding: 25px;
+  margin: 50px 70px 50px 70px;
+  min-height: 400px;
+}
+
+.card_container {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card_container .nothing_to_do {
+  font-size: 1.3em;
+  color: #aaa;
+  margin-bottom: 0 !important;
+}
+
+.card_container .nothing_to_do::first-letter {
+  color: #0d6efd;
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -1085,34 +1120,6 @@ body {
   outline: 0;
   background: rgba(0, 0, 0, 0.7);
   transition: all 5s ease;
-}
-
-.hamburger-inner,
-.hamburger-inner::before,
-.hamburger-inner::after {
-  background-color: #aaa !important;
-}
-
-.aquarium {
-  transition: all 0.7s ease;
-}
-
-.add_btn_container {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  position: relative;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.search_container {
-  padding-top: 20px;
-  display: none;
-}
-
-.search_container label {
-  padding-top: 36px !important;
 }
 
 .navbar_svg {
@@ -1148,85 +1155,6 @@ body {
 
 .colorful-1:hover:before {
   inset: auto 0 0 0;
-}
-
-.add_item_btn {
-  font-size: 0.8em !important;
-}
-
-.to_do_list {
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  flex-direction: column;
-  padding: 25px;
-  margin: 50px 70px 50px 70px;
-  min-height: 400px;
-}
-
-.card_container {
-  margin-top: 50px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-
-.card_container .nothing_to_do {
-  font-size: 1.3em;
-  color: #aaa;
-  margin-bottom: 0 !important;
-}
-
-.card_container .nothing_to_do::first-letter {
-  color: #0d6efd;
-}
-
-.modal {
-  z-index: 1058 !important;
-}
-
-.card {
-  width: 300px;
-  margin: 30px;
-  transition: all 0.7s ease;
-}
-
-.card_anime {
-  animation: anime 2s ease 1;
-}
-
-@keyframes anime {
-  from {
-    transform: translateY(-200px);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-.card-subtitle {
-  text-align: center;
-  transition: all 0.7s ease;
-  font-size: .8em;
-}
-
-.card-text {
-  margin: 30px;
-  color: #111;
-  transition: all 0.7s ease;
-}
-
-.card_btn_css {
-  padding: 3px 15px !important;
-}
-
-.btn_card_container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
 }
 
 .aquarium {
@@ -2061,6 +1989,78 @@ body {
   }
   100% {
     transform: rotate(210deg) scale(1) translateX(0);
+  }
+}
+
+.aquarium {
+  transition: all 0.7s ease;
+}
+
+.add_btn_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.search_container {
+  padding-top: 20px;
+  display: none;
+}
+
+.search_container label {
+  padding-top: 36px !important;
+}
+
+.add_item_btn {
+  font-size: 0.8em !important;
+}
+
+.modal {
+  z-index: 1058 !important;
+}
+
+.card {
+  width: 300px;
+  margin: 30px;
+  transition: all 0.7s ease;
+}
+
+.card .card-subtitle {
+  text-align: center;
+  transition: all 0.7s ease;
+  font-size: .8em;
+}
+
+.card .card-text {
+  margin: 30px;
+  color: #111;
+  transition: all 0.7s ease;
+}
+
+.card .card_btn_css {
+  padding: 3px 15px !important;
+}
+
+.card .btn_card_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.card_anime {
+  animation: anime 2s ease 1;
+}
+
+@keyframes anime {
+  from {
+    transform: translateY(-200px);
+  }
+  to {
+    transform: translateY(0);
   }
 }
 /*# sourceMappingURL=Home.css.map */
