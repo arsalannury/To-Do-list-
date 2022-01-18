@@ -1991,4 +1991,55 @@ body {
     transform: rotate(210deg) scale(1) translateX(0);
   }
 }
+
+#fullpage .section_one .fp-tableCell {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#fullpage .section_one .container_about_me {
+  color: #333;
+  padding-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+#fullpage .section_one .container_about_me h1 {
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 5em;
+}
+
+#fullpage .section_one .container_about_me h1::first-letter {
+  color: #219ebc;
+}
+
+#fullpage .section_one .container_about_me .arrows {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  height: 80px;
+  animation: arrow 1s infinite linear alternate;
+}
+
+#fullpage .section_one .container_about_me .arrows i {
+  color: #000;
+}
+
+@keyframes arrow {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(10px);
+    opacity: .5;
+  }
+}
 /*# sourceMappingURL=aboutMe.css.map */

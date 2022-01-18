@@ -1,6 +1,8 @@
 import Toastify from "toastify-js";
 import persianDate from "persian-date";
 import changeLocation from "../module/location";
+import fullpage from "fullpage.js";
+
 import {
     darkModeStyles,
     lightModeStyles,
@@ -48,3 +50,19 @@ navbarBackdrop.addEventListener("click", (e) => {
   navbarBtnHandlerHide();
 });
 // show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+new fullpage('#fullpage', {
+	//options here
+	autoScrolling:true,
+  licenseKey: '7yhihj7ht67hyh',
+	scrollHorizontally: true,
+  css3: true,
+	scrollingSpeed: 700,
+	autoScrolling: true,
+	fitToSection: true,
+	fitToSectionDelay: 1000,
+});
+
+//methods
+fullpage_api.setAllowScrolling(true);
+
