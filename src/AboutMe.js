@@ -52,8 +52,6 @@ navbarBackdrop.addEventListener("click", (e) => {
 // show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 new fullpage('#fullpage', {
-	//options here
-	autoScrolling:true,
   licenseKey: '7yhihj7ht67hyh',
 	scrollHorizontally: true,
   css3: true,
@@ -61,6 +59,8 @@ new fullpage('#fullpage', {
 	autoScrolling: true,
 	fitToSection: true,
 	fitToSectionDelay: 1000,
+  showActiveTooltip: true,
+  keyboardScrolling: true,
 });
 
 //methods
