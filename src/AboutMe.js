@@ -61,6 +61,7 @@ new fullpage('#fullpage', {
 	fitToSectionDelay: 1000,
   showActiveTooltip: true,
   keyboardScrolling: true,
+  anchors:['start', 'end'],
 });
 
 //methods

@@ -1992,6 +1992,14 @@ body {
   }
 }
 
+.darkmode_icon {
+  z-index: 1;
+}
+
+.darkmode_icon_sun {
+  z-index: 1;
+}
+
 #fullpage .section_one .fp-tableCell {
   display: flex;
   align-items: flex-start;
