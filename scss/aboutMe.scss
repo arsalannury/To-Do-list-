@@ -22,13 +22,18 @@
             align-items: center;
             justify-content: space-between;
             flex-direction: column;
+            transition: all 0.7s ease;
             h1{
                 font-weight: bold;
                 letter-spacing: 2px;
+                transition: all 0.7s ease;
                 font-size: 5em;
                &::first-letter{
                    color: $HoverColorBlue;
                }
+            }
+            span{
+                 transition: all 0.7s ease;
             }
             .arrows{
                 display: flex;
@@ -37,9 +42,11 @@
                 justify-content: space-between;
                 padding-top: 20px;
                 height: 80px;
+                transition: all 0.7s ease;
                 animation: arrow 1s infinite linear alternate;
                 i{
                     color: #000;
+                    transition: all 0.7s ease;
                 }
             }
         }
@@ -52,8 +59,8 @@
                 padding-top: 60px;
                 .me{
                     width: 250px;
-                    border: 1px solid #ccc;
                     border-radius: 50%;
+                    cursor: pointer;
                 }
                 .container_image{
                     display: flex;
@@ -66,6 +73,21 @@
                     align-items: center;
                     justify-content: space-evenly;
                     direction: ltr;
+                    position: relative;
+                    z-index: 2;
+                    h2{
+                        &::first-letter{
+                            color: $HoverColorBlue;
+                        }
+                    }
+                    .social a{
+                        text-decoration: none;
+                    }
+                    .svg_inf{
+                        position: absolute;
+                        z-index: -1;
+                        width: 500px;
+                    }
                 }
             }
         }

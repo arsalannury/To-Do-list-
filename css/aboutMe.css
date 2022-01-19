@@ -2014,16 +2014,22 @@ body {
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  transition: all 0.7s ease;
 }
 
 #fullpage .section_one .container_about_me h1 {
   font-weight: bold;
   letter-spacing: 2px;
+  transition: all 0.7s ease;
   font-size: 5em;
 }
 
 #fullpage .section_one .container_about_me h1::first-letter {
   color: #219ebc;
+}
+
+#fullpage .section_one .container_about_me span {
+  transition: all 0.7s ease;
 }
 
 #fullpage .section_one .container_about_me .arrows {
@@ -2033,11 +2039,13 @@ body {
   justify-content: space-between;
   padding-top: 20px;
   height: 80px;
+  transition: all 0.7s ease;
   animation: arrow 1s infinite linear alternate;
 }
 
 #fullpage .section_one .container_about_me .arrows i {
   color: #000;
+  transition: all 0.7s ease;
 }
 
 #fullpage .section_two .fp-tableCell .container__row {
@@ -2046,8 +2054,8 @@ body {
 
 #fullpage .section_two .fp-tableCell .container__row .me {
   width: 250px;
-  border: 1px solid #ccc;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 #fullpage .section_two .fp-tableCell .container__row .container_image {
@@ -2062,6 +2070,22 @@ body {
   align-items: center;
   justify-content: space-evenly;
   direction: ltr;
+  position: relative;
+  z-index: 2;
+}
+
+#fullpage .section_two .fp-tableCell .container__row .container_inf h2::first-letter {
+  color: #219ebc;
+}
+
+#fullpage .section_two .fp-tableCell .container__row .container_inf .social a {
+  text-decoration: none;
+}
+
+#fullpage .section_two .fp-tableCell .container__row .container_inf .svg_inf {
+  position: absolute;
+  z-index: -1;
+  width: 500px;
 }
 
 @keyframes arrow {
