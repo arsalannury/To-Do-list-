@@ -2031,7 +2031,7 @@ body {
 .card .card-subtitle {
   text-align: center;
   transition: all 0.7s ease;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .card .card-text {
@@ -2061,6 +2061,36 @@ body {
   }
   to {
     transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .aquarium {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .aquarium .aquarium__table {
+    left: unset;
+  }
+  .aquarium .aquarium__aquarium {
+    left: unset;
+  }
+  .aquarium .aquarium__drops {
+    left: unset;
+  }
+  .aquarium .aquarium__sponge-box {
+    left: unset;
+  }
+  .card {
+    width: 260px;
+  }
+  .add_item_btn {
+    font-size: 0.7em !important;
+  }
+  .menu_container {
+    width: 70%;
   }
 }
 /*# sourceMappingURL=Home.css.map */

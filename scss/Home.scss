@@ -1,4 +1,4 @@
-@import './root';
+@import "./root";
 
 // aquarium sponge style start : : : : : : : : : : : :
 .aquarium {
@@ -6,9 +6,8 @@
 }
 // aquarium sponge style End : : : : : : : : : : : :
 
-
 // add btn and search styles start
-.add_btn_container{
+.add_btn_container {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -16,15 +15,14 @@
   flex-wrap: wrap;
   width: 100%;
 }
-.search_container{
+.search_container {
   padding-top: 20px;
   display: none;
-  label{
+  label {
     padding-top: 36px !important;
   }
 }
 // add btn and search styles end
-
 
 // add item modal btn start : : : : : : : : : : : : ::
 .add_item_btn {
@@ -32,46 +30,79 @@
 }
 // add item modal btn end : : : : : : : : : : : : ::
 
-
 // modal section start : : : : : : : : : : : : ::
-.modal{
+.modal {
   z-index: 1058 !important;
 }
 // modal section end : : : : : : : : : : : : ::
 
-
 // card and card body start : : : : : : : : : : : : ::
-.card{
+.card {
   width: 300px;
   margin: 30px;
   transition: all 0.7s ease;
 
-.card-subtitle{
-  text-align: center;
-  transition: all 0.7s ease;
-  font-size: .8em;
+  .card-subtitle {
+    text-align: center;
+    transition: all 0.7s ease;
+    font-size: 0.8em;
+  }
+  .card-text {
+    margin: 30px;
+    color: #111;
+    transition: all 0.7s ease;
+  }
+  .card_btn_css {
+    padding: 3px 15px !important;
+  }
+  .btn_card_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
 }
-.card-text{
-  margin: 30px;
-  color: #111;
-  transition: all 0.7s ease;
-}
-.card_btn_css{
-  padding: 3px 15px !important;
-}
-.btn_card_container{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-}
-.card_anime{
-  animation: anime 2s ease 1 ;
+.card_anime {
+  animation: anime 2s ease 1;
 }
 @keyframes anime {
-  from {transform: translateY(-200px);}
-  to {transform: translateY(0);}
+  from {
+    transform: translateY(-200px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 // card and card body end
 
+//  responsive HOME page | | | | | | | | | | | | | |
+
+@media screen and (max-width: 500px) {
+  .aquarium {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .aquarium__table {
+      left: unset;
+    }
+    .aquarium__aquarium {
+      left: unset;
+    }
+    .aquarium__drops {
+      left: unset;
+    }
+    .aquarium__sponge-box {
+      left: unset;
+    }
+  }
+  .card {
+    width: 260px;
+  }
+  .add_item_btn {
+    font-size: 0.7em !important;
+  }
+  .menu_container {
+    width: 70%;
+  }
+}

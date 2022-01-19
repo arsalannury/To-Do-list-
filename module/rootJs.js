@@ -28,10 +28,10 @@ export function darkModeStyles() {
   document.body.style.backgroundColor = "#111";
   datePersian.style.color = "#fff";
   darkModeIconMoon.className = "bi bi-brightness-high darkmode_icon_sun";
-  if(modalContent){
+  if (modalContent) {
     modalContent.style.backgroundColor = "#aaa";
   }
-  if(aquariumBody){
+  if (aquariumBody) {
     aquariumBody.style.backgroundColor = "#111";
     aquariumTable.style.backgroundColor = "#fff";
     aquariumAquarium.style.borderColor = "#fff";
@@ -55,7 +55,7 @@ export function darkModeStyles() {
   });
   navbarContainer.style.boxShadow = "0 0 10px #eee";
   navbarContainer.style.backgroundColor = "#111";
-  if(modalContent){
+  if (modalContent) {
     modalBackdrop.style.backgroundColor = "rgba(255,255,255,.20)";
   }
   navbarBackdrop.style.backgroundColor = "rgba(255,255,255,.20)";
@@ -74,10 +74,10 @@ export function lightModeStyles() {
   document.body.style.backgroundColor = "#fff";
   datePersian.style.color = "#000";
   darkModeIconMoon.className = "bi bi-moon darkmode_icon";
-  if(modalContent){
+  if (modalContent) {
     modalContent.style.backgroundColor = "#fff";
   }
-  if(aquariumBody){
+  if (aquariumBody) {
     aquariumBody.style.backgroundColor = "#fff";
     aquariumTable.style.backgroundColor = "#000";
     aquariumAquarium.style.borderColor = "#000";
@@ -104,8 +104,8 @@ export function lightModeStyles() {
   });
   navbarContainer.style.boxShadow = "0 0 10px #333";
   navbarContainer.style.backgroundColor = "#fff";
-  if(modalContent){
-      modalBackdrop.style.backgroundColor = "unset";
+  if (modalContent) {
+    modalBackdrop.style.backgroundColor = "unset";
   }
   navbarBackdrop.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
   navbarListItem.forEach((item) => {
@@ -117,12 +117,12 @@ export function lightModeStyles() {
 
 // show and hide navbar start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-
 export function navbarBtnHandlerShow() {
   hamburgerNavbarBtn.classList.add("is-active");
   navbarContainer.style.transform = "translateX(0)";
   navbarBackdrop.style.display = "unset";
   hamburgerNavbarBtn.id = "false";
+  document.body.style.overflowY = "hidden"
 }
 
 export function navbarBtnHandlerHide() {
@@ -130,6 +130,7 @@ export function navbarBtnHandlerHide() {
   navbarContainer.style.transform = "translateX(-300px)";
   navbarBackdrop.style.display = "none";
   hamburgerNavbarBtn.id = "true";
+  document.body.style.overflowY = "unset"
 }
 // show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -138,34 +139,34 @@ export function navbarBtnHandlerHide() {
 // and if light mode was on
 // card has light mode styles
 export function styleCardDarkOrLightMode() {
-    if (document.body.id === "true") {
-      document
-        .querySelectorAll(".card-subtitle")
-        .forEach((subtitle) => (subtitle.style.color = "#000"));
-      document
-        .querySelectorAll(".card-text")
-        .forEach((cardText) => (cardText.style.color = "#000"));
-      document
-        .querySelectorAll(".card")
-        .forEach((bgColor) => (bgColor.style.backgroundColor = "#fff"));
-      document
-        .querySelectorAll(".card")
-        .forEach(
-          (colorBorder) =>
-            (colorBorder.style.border = "1px solid rgba(0,0,0,.125)")
-        );
-    } else if (document.body.id === "false") {
-      document
-        .querySelectorAll(".card-subtitle")
-        .forEach((subtitle) => (subtitle.style.color = "#fff"));
-      document
-        .querySelectorAll(".card-text")
-        .forEach((cardText) => (cardText.style.color = "#fff"));
-      document
-        .querySelectorAll(".card")
-        .forEach((bgColor) => (bgColor.style.backgroundColor = "#333"));
-      document
-        .querySelectorAll(".card")
-        .forEach((borderColor) => (borderColor.style.border = "1px solid #fff"));
-    }
+  if (document.body.id === "true") {
+    document
+      .querySelectorAll(".card-subtitle")
+      .forEach((subtitle) => (subtitle.style.color = "#000"));
+    document
+      .querySelectorAll(".card-text")
+      .forEach((cardText) => (cardText.style.color = "#000"));
+    document
+      .querySelectorAll(".card")
+      .forEach((bgColor) => (bgColor.style.backgroundColor = "#fff"));
+    document
+      .querySelectorAll(".card")
+      .forEach(
+        (colorBorder) =>
+          (colorBorder.style.border = "1px solid rgba(0,0,0,.125)")
+      );
+  } else if (document.body.id === "false") {
+    document
+      .querySelectorAll(".card-subtitle")
+      .forEach((subtitle) => (subtitle.style.color = "#fff"));
+    document
+      .querySelectorAll(".card-text")
+      .forEach((cardText) => (cardText.style.color = "#fff"));
+    document
+      .querySelectorAll(".card")
+      .forEach((bgColor) => (bgColor.style.backgroundColor = "#333"));
+    document
+      .querySelectorAll(".card")
+      .forEach((borderColor) => (borderColor.style.border = "1px solid #fff"));
   }
+}
