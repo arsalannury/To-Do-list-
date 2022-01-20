@@ -1,39 +1,90 @@
-@import './root';
-
-
+@import "./root";
+@mixin aquarium {
+  .aquarium {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .aquarium__table {
+      left: unset;
+    }
+    .aquarium__aquarium {
+      left: unset;
+    }
+    .aquarium__drops {
+      left: unset;
+    }
+    .aquarium__sponge-box {
+      left: unset;
+    }
+  }
+}
 
 // card and card body start : : : : : : : : : : : : ::
-.card{
-    width: 300px;
-    margin: 30px;
-    transition: all 0.7s ease;
-  
-  .card-subtitle{
+.card {
+  width: 300px;
+  margin: 30px;
+  transition: all 0.7s ease;
+
+  .card-subtitle {
     text-align: center;
     transition: all 0.7s ease;
-    font-size: .8em;
+    font-size: 0.8em;
   }
-  .card-text{
+  .card-text {
     margin: 30px;
     color: #111;
     transition: all 0.7s ease;
   }
-  .card_footer{
+  .card_footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    .card_image_footer{
-      width : 70px;
+    .card_image_footer {
+      width: 70px;
     }
   }
 }
-.card_anime{
-  animation: anime 2s ease 1 ;
+.card_anime {
+  animation: anime 2s ease 1;
 }
 @keyframes anime {
-  from {transform: translateY(-200px);}
-  to {transform: translateY(0);}
+  from {
+    transform: translateY(-200px);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
-  // card and card body end
-  
-  
+// card and card body end
+
+//  responsive HOME page | | | | | | | | | | | | | |
+
+@media screen and (max-width: 500px) {
+  @include aquarium();
+  .card {
+    width: 260px;
+  }
+  .menu_container {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 800px) {
+  @include aquarium();
+  .menu_container {
+    width: 45%;
+  }
+  .date_persian {
+    font-size: 1em;
+  }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1100px) {
+  .menu_container {
+    width: 25%;
+  }
+  .date_persian {
+    font-size: 1em;
+  }
+}
