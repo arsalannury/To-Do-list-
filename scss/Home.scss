@@ -1,5 +1,24 @@
 @import "./root";
-
+@mixin aquarium {
+  .aquarium {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .aquarium__table {
+      left: unset;
+    }
+    .aquarium__aquarium {
+      left: unset;
+    }
+    .aquarium__drops {
+      left: unset;
+    }
+    .aquarium__sponge-box {
+      left: unset;
+    }
+  }
+}
 // aquarium sponge style start : : : : : : : : : : : :
 .aquarium {
   transition: all 0.7s ease;
@@ -78,24 +97,7 @@
 //  responsive HOME page | | | | | | | | | | | | | |
 
 @media screen and (max-width: 500px) {
-  .aquarium {
-    width: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    .aquarium__table {
-      left: unset;
-    }
-    .aquarium__aquarium {
-      left: unset;
-    }
-    .aquarium__drops {
-      left: unset;
-    }
-    .aquarium__sponge-box {
-      left: unset;
-    }
-  }
+  @include aquarium();
   .card {
     width: 260px;
   }
@@ -104,5 +106,13 @@
   }
   .menu_container {
     width: 70%;
+  }
+}
+
+@media screen and (min-width : 501px) and (max-width : 800px) {
+  @include aquarium();
+  .menu_container {
+    width: 50%;
+
   }
 }

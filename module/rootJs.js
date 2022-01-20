@@ -122,15 +122,15 @@ export function navbarBtnHandlerShow() {
   navbarContainer.style.transform = "translateX(0)";
   navbarBackdrop.style.display = "unset";
   hamburgerNavbarBtn.id = "false";
-  document.body.style.overflowY = "hidden"
+  document.body.style.overflowY = "hidden";
 }
 
 export function navbarBtnHandlerHide() {
   hamburgerNavbarBtn.classList.remove("is-active");
-  navbarContainer.style.transform = "translateX(-300px)";
+  navbarContainer.style.transform = "translateX(-450px)";
   navbarBackdrop.style.display = "none";
   hamburgerNavbarBtn.id = "true";
-  document.body.style.overflowY = "unset"
+  document.body.style.overflowY = "unset";
 }
 // show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
