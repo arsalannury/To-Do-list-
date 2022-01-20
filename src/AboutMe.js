@@ -87,9 +87,9 @@ myImage.addEventListener('click', () => {
 // click image and view full screen image end ||||||||||||||||||||||||||||||||||||
 
 
-function aboutMeDarkLightMode(params) {
-  containerAboutMe.style.color = params;
+function aboutMeDarkLightMode(textColor,arrowColor) {
+  containerAboutMe.style.color = textColor;
   arrows.forEach((arrow) => {
-    arrow.style.color = '#fff';
+    arrow.style.color = arrowColor;
   })
 }
