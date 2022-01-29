@@ -73,6 +73,7 @@ const showCardAfterLoad = () => {
          <div id='${item.id}' class="card card_anime">
          <div class="card-body">
          <p class="card-subtitle">${item.time}</p>
+         <p class="card-subtitle">${item.doneTime} </p>
          <p class="card-text">
            ${item.text}
          </p>

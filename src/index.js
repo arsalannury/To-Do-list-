@@ -7,7 +7,7 @@ import {
   navbarBtnHandlerShow,
   navbarBtnHandlerHide,
   styleCardDarkOrLightMode,
-}from '../module/rootJs';
+} from "../module/rootJs";
 
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const aquariumBody = document.querySelector(".aquarium");
@@ -111,7 +111,6 @@ function addToDo() {
 }
 // add todo to list event end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-
 //  : : : : : : load page with local storage value start
 window.addEventListener("DOMContentLoaded", () => {
   localStorage.getItem("homeLocal")
@@ -134,6 +133,8 @@ function pushToArraySetLocal() {
     time: new persianDate().format("dddd, DD MMMM YYYY, h:mm:ss a"),
     text: addToDoInput.value,
     id: Math.floor(Math.random() * 1000000),
+    doneTime: "",
+    deleteTime: "",
   });
   const newItemTodoLocal = localStorage.setItem(
     "homeLocal",
@@ -224,14 +225,16 @@ function afterLoadShowCard() {
     ".done_btn",
     "Well Done",
     "#38b000",
-    doneLocalStorageArray
+    doneLocalStorageArray,
+    doneTime
   );
   doneAndDeleteCardEvent(
     "DeleteLocal",
     ".del_btn",
     "Item Deleted",
     "#d00000",
-    delLocalStorageArray
+    delLocalStorageArray,
+    deleteTime
   );
 }
 
@@ -240,11 +243,26 @@ function doneAndDeleteCardEvent(
   elementEvent,
   textToastify,
   colorToatify,
-  localArray
+  localArray,
+  finall
 ) {
   //  set done/delete local after DONE/DELETE btn click
   document.querySelectorAll(elementEvent).forEach((btnElement) => {
     btnElement.addEventListener("click", (e) => {
+      
+      const finalyTime = JSON.parse(localStorage.getItem("homeLocal"));
+      for (let change of finalyTime) {
+        const result =
+          localName === "doneLocal"
+            ? (change.doneTime = new persianDate().format(
+                "dddd, DD MMMM YYYY, h:mm:ss a"
+              ))
+            : (change.deleteTime = new persianDate().format(
+                "dddd, DD MMMM YYYY, h:mm:ss a"
+              ));
+      }
+      localStorage.setItem("homeLocal", JSON.stringify(finalyTime));
+
       const parseHomeLocal = JSON.parse(
         localStorage.getItem("homeLocal")
       ).filter(
