@@ -6,7 +6,7 @@ import {
   lightModeStyles,
   navbarBtnHandlerShow,
   navbarBtnHandlerHide,
-}from '../module/rootJs';
+} from "../module/rootJs";
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const aquariumBody = document.querySelector(".aquarium");
 const navbarBackdrop = document.querySelector(".backdrop");
@@ -49,8 +49,6 @@ navbarBackdrop.addEventListener("click", (e) => {
 });
 // show and hide navbar end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-
-
 // after load page
 // show card when we have done local storage
 const showCardAfterLoad = () => {
@@ -72,12 +70,26 @@ const showCardAfterLoad = () => {
         cardContainer.innerHTML += `
          <div id='${item.id}' class="card card_anime">
          <div class="card-body">
-         <p class="card-subtitle">${item.time}</p>
-         <p class="card-subtitle">${item.doneTime} </p>
-         <p class="card-text">
-           ${item.text}
-         </p>
+         <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <p class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed accordion_btn" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne_${index}" aria-expanded="false" aria-controls="flush-collapseOne_${index}">
+             Time Details
+          </button>
+        </p>
+        <div id="flush-collapseOne_${index}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne_${index}" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+          <p class="badge bg-primary bagde_time">create time</p>
+           <p class="card-subtitle">${item.time}</p>
+          <p class="badge bg-success bagde_time">done time</p>
+         <p class="card-subtitle">${item.doneTime} </p></div>
+        </div>
+      </div>
          </div>
+         
+         <p class="card-text">
+         ${item.text}
+       </p>
          <div class="card_footer">
            <img class="card_image_footer" src="../images/icons8-ok.svg" />
          </div>

@@ -1157,6 +1157,25 @@ body {
   inset: auto 0 0 0;
 }
 
+.badge {
+  font-weight: unset !important;
+  margin-bottom: 10px !important;
+  opacity: .5 !important;
+}
+
+.accordion_btn {
+  font-size: .9em !important;
+}
+
+.accordion-button:focus {
+  box-shadow: unset !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: unset !important;
+  background-color: unset !important;
+}
+
 .aquarium {
   position: relative;
   overflow: hidden;

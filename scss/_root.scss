@@ -170,6 +170,27 @@ $hamburgerIconColor: #aaa;
 }
 // Hover style to Menu items end : : : : : : : : :
 
+
+// time section card start : : : : :: : :: : : : : :
+.badge {
+  font-weight: unset !important;
+  margin-bottom: 10px !important;
+  opacity: .5 !important;
+}
+.accordion_btn {
+  font-size: .9em !important;
+}
+.accordion-button:focus{
+  box-shadow: unset !important;
+}
+.accordion-button:not(.collapsed) {
+ color : unset !important;
+ background-color: unset !important;
+}
+// time section card end : : : : :: : :: : : : : :
+
+
+
 // animation to list : : : : : : : : : : : : : : : : : : : : : : : : : : :
 // animation to list : : : : : : : : : : : : : : : : : : : : : : : : : : :
 // animation to list : : : : : : : : : : : : : : : : : : : : : : : : : : :

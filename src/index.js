@@ -226,7 +226,6 @@ function afterLoadShowCard() {
     "Well Done",
     "#38b000",
     doneLocalStorageArray,
-    doneTime
   );
   doneAndDeleteCardEvent(
     "DeleteLocal",
@@ -234,7 +233,6 @@ function afterLoadShowCard() {
     "Item Deleted",
     "#d00000",
     delLocalStorageArray,
-    deleteTime
   );
 }
 
@@ -244,7 +242,6 @@ function doneAndDeleteCardEvent(
   textToastify,
   colorToatify,
   localArray,
-  finall
 ) {
   //  set done/delete local after DONE/DELETE btn click
   document.querySelectorAll(elementEvent).forEach((btnElement) => {
