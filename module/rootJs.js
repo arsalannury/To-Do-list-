@@ -11,6 +11,8 @@ const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const navbarSvg = document.querySelectorAll(".navbar_svg path");
 const navbarListItem = document.querySelectorAll(".menu_container ul li");
 const datePersian = document.querySelector(".date_persian");
+const accordionItem = document.querySelector('.accordion-item');
+const accordionBtn = document.querySelector('.accordion_btn');
 
 // light and dark Mode web page start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -62,6 +64,9 @@ export function darkModeStyles() {
   navbarListItem.forEach((item) => {
     item.style.color = "rgba(255,255,255,.5)";
   });
+  // if(accordionItem){
+  //   accordionItem.style.backgroundColor = 'rgb(51, 51, 51)';
+  // }
   document.body.id = "false";
 }
 
