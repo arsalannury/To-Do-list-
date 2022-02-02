@@ -6,6 +6,7 @@ import {
   lightModeStyles,
   navbarBtnHandlerShow,
   navbarBtnHandlerHide,
+  deleteItemsHandler,
 } from "../module/rootJs";
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const aquariumBody = document.querySelector(".aquarium");
@@ -14,6 +15,8 @@ const hamburgerNavbarBtn = document.querySelector(".hamburger_navbar");
 const getLocalStorageToJson = JSON.parse(localStorage.getItem("doneLocal"));
 const cardContainer = document.querySelector(".card_container");
 const paragraphEmptyList = document.querySelector(".nothing_to_do");
+const doneDeleteItems = document.querySelector('.delete_items');
+
 
 changeLocation();
 
@@ -101,3 +104,9 @@ const showCardAfterLoad = () => {
   });
 };
 showCardAfterLoad();
+
+
+
+doneDeleteItems.addEventListener('click',() => {
+  deleteItemsHandler('doneLocal');
+})

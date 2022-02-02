@@ -170,24 +170,33 @@ $hamburgerIconColor: #aaa;
 }
 // Hover style to Menu items end : : : : : : : : :
 
-
 // time section card start : : : : :: : :: : : : : :
 .badge {
   font-weight: unset !important;
   margin-bottom: 10px !important;
-  opacity: .5 !important;
+  opacity: 0.5 !important;
 }
 .accordion_btn {
-  font-size: .9em !important;
+  font-size: 0.9em !important;
 }
-.accordion-button:focus{
+.accordion-button:focus {
   box-shadow: unset !important;
 }
 .accordion-button:not(.collapsed) {
- color : unset !important;
- background-color: unset !important;
+  color: unset !important;
+  background-color: unset !important;
 }
 // time section card end : : : : :: : :: : : : : :
+
+//  delete card icon style in done and delete page start : : : : : : : : : : : : : :
+.delete_card {
+  font-size: 1.4em;
+  cursor: pointer;
+}
+.done_modal{
+  z-index: 1057 !important;
+}
+//  delete card icon style in done and delete page end : : : : : : : : : : : : : :
 
 
 

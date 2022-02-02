@@ -1160,11 +1160,11 @@ body {
 .badge {
   font-weight: unset !important;
   margin-bottom: 10px !important;
-  opacity: .5 !important;
+  opacity: 0.5 !important;
 }
 
 .accordion_btn {
-  font-size: .9em !important;
+  font-size: 0.9em !important;
 }
 
 .accordion-button:focus {
@@ -1174,6 +1174,15 @@ body {
 .accordion-button:not(.collapsed) {
   color: unset !important;
   background-color: unset !important;
+}
+
+.delete_card {
+  font-size: 1.4em;
+  cursor: pointer;
+}
+
+.done_modal {
+  z-index: 1057 !important;
 }
 
 .aquarium {

@@ -11,9 +11,7 @@ const darkModeIconMoon = document.querySelector("#darkmode_icon");
 const navbarSvg = document.querySelectorAll(".navbar_svg path");
 const navbarListItem = document.querySelectorAll(".menu_container ul li");
 const datePersian = document.querySelector(".date_persian");
-const accordionItem = document.querySelector('.accordion-item');
-const accordionBtn = document.querySelector('.accordion_btn');
-
+const accordionItem = document.querySelector(".accordion-item");
 // light and dark Mode web page start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 export function darkModeStyles() {
@@ -38,6 +36,13 @@ export function darkModeStyles() {
     aquariumTable.style.backgroundColor = "#fff";
     aquariumAquarium.style.borderColor = "#fff";
   }
+
+ if(document.querySelector(".accordion-item")){
+  document.querySelector(".accordion-item").style.backgroundColor =
+  "rgb(51, 51, 51)";
+document.querySelector(".accordion-header").style.color = "#fff";
+ }
+
   if (document.querySelector(".card")) {
     document
       .querySelectorAll(".card-subtitle")
@@ -64,9 +69,6 @@ export function darkModeStyles() {
   navbarListItem.forEach((item) => {
     item.style.color = "rgba(255,255,255,.5)";
   });
-  // if(accordionItem){
-  //   accordionItem.style.backgroundColor = 'rgb(51, 51, 51)';
-  // }
   document.body.id = "false";
 }
 
@@ -87,6 +89,10 @@ export function lightModeStyles() {
     aquariumTable.style.backgroundColor = "#000";
     aquariumAquarium.style.borderColor = "#000";
   }
+ if(document.querySelector(".accordion-item")){
+  document.querySelector(".accordion-item").style.backgroundColor = "#fff";
+  document.querySelector(".accordion-header").style.color = "#000";
+ }
   if (document.querySelector(".card")) {
     document
       .querySelectorAll(".card-subtitle")
@@ -174,4 +180,24 @@ export function styleCardDarkOrLightMode() {
       .querySelectorAll(".card")
       .forEach((borderColor) => (borderColor.style.border = "1px solid #fff"));
   }
+}
+
+export function deleteItemsHandler(local) {
+
+   if(localStorage.getItem(local)){
+     localStorage.removeItem(local);
+     location.reload();
+   }else{
+     Toastify({
+       text : "There is no  item for delete",
+       duration: 3000,
+       position: "center",
+       gravity: "bottom",
+       style: {
+         background: "#e5383b",
+         color: "#fff",
+       },
+     }).showToast();
+   }
+
 }

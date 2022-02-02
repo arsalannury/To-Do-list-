@@ -6,6 +6,7 @@ import {
   lightModeStyles,
   navbarBtnHandlerShow,
   navbarBtnHandlerHide,
+  deleteItemsHandler,
 } from "../module/rootJs";
 
 const darkModeIconMoon = document.querySelector("#darkmode_icon");
@@ -15,7 +16,7 @@ const hamburgerNavbarBtn = document.querySelector(".hamburger_navbar");
 const getLocalStorageToJson = JSON.parse(localStorage.getItem("DeleteLocal"));
 const cardContainer = document.querySelector(".card_container");
 const paragraphEmptyList = document.querySelector(".nothing_to_do");
-
+const deleteItems = document.querySelector('.delete_items');
 changeLocation();
 // pesrian date show to navbar menu start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 const datePersian = document.querySelector(".date_persian");
@@ -83,7 +84,7 @@ const showCardAfterLoad = () => {
              <div class="accordion-body">
              <p class="badge bg-primary bagde_time">create time</p>
               <p class="card-subtitle">${item.time}</p>
-             <p class="badge bg-success bagde_time">delete time</p>
+             <p class="badge bg-danger bagde_time">delete time</p>
              <p class="card-subtitle">${item.deleteTime} </p></div>
            </div>
          </div>
@@ -104,3 +105,10 @@ const showCardAfterLoad = () => {
   });
 };
 showCardAfterLoad();
+
+
+// delete All items in page start |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+deleteItems.addEventListener('click',()=> {
+  deleteItemsHandler('DeleteLocal');
+})
+// delete All items in page end |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
