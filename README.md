@@ -1,7 +1,10 @@
 # Project Title
 
-TODO LIST  is a easy Project to JavaScript Developers
+This is a professional ToDo List project
 
+.save data in local storage <br />
+.show create , delete , done time <br />
+.pages : Home ,Done ,Delete ,AboutMe
 
 
 
