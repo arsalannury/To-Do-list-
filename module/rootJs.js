@@ -37,11 +37,14 @@ export function darkModeStyles() {
     aquariumAquarium.style.borderColor = "#fff";
   }
 
- if(document.querySelector(".accordion-item")){
-  document.querySelector(".accordion-item").style.backgroundColor =
-  "rgb(51, 51, 51)";
-document.querySelector(".accordion-header").style.color = "#fff";
- }
+  if (document.querySelector(".accordion-item")) {
+    document.querySelectorAll(".accordion-item").forEach((items) => {
+      items.style.backgroundColor = "rgb(51, 51, 51)";
+    });
+    document.querySelectorAll(".accordion-header").forEach((items) => {
+      items.style.color = "#fff";
+    });
+  }
 
   if (document.querySelector(".card")) {
     document
@@ -89,10 +92,14 @@ export function lightModeStyles() {
     aquariumTable.style.backgroundColor = "#000";
     aquariumAquarium.style.borderColor = "#000";
   }
- if(document.querySelector(".accordion-item")){
-  document.querySelector(".accordion-item").style.backgroundColor = "#fff";
-  document.querySelector(".accordion-header").style.color = "#000";
- }
+  if (document.querySelector(".accordion-item")) {
+    document.querySelectorAll(".accordion-item").forEach((items) => {
+      items.style.backgroundColor = "#fff";
+    });
+    document.querySelectorAll(".accordion-header").forEach((items) => {
+      items.style.color = "#000";
+    });
+  }
   if (document.querySelector(".card")) {
     document
       .querySelectorAll(".card-subtitle")
@@ -183,21 +190,19 @@ export function styleCardDarkOrLightMode() {
 }
 
 export function deleteItemsHandler(local) {
-
-   if(localStorage.getItem(local)){
-     localStorage.removeItem(local);
-     location.reload();
-   }else{
-     Toastify({
-       text : "There is no  item for delete",
-       duration: 3000,
-       position: "center",
-       gravity: "bottom",
-       style: {
-         background: "#e5383b",
-         color: "#fff",
-       },
-     }).showToast();
-   }
-
+  if (localStorage.getItem(local)) {
+    localStorage.removeItem(local);
+    location.reload();
+  } else {
+    Toastify({
+      text: "There is no  item for delete",
+      duration: 3000,
+      position: "center",
+      gravity: "bottom",
+      style: {
+        background: "#e5383b",
+        color: "#fff",
+      },
+    }).showToast();
+  }
 }

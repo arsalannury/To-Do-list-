@@ -1163,6 +1163,10 @@ body {
   opacity: 0.5 !important;
 }
 
+.accordion-item {
+  transition: all .7s ease;
+}
+
 .accordion_btn {
   font-size: 0.9em !important;
 }
