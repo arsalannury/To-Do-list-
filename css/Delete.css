@@ -1183,9 +1183,14 @@ body {
 .delete_card {
   font-size: 1.4em;
   cursor: pointer;
+  color: #aaa;
 }
 
 .done_modal {
+  z-index: 1057 !important;
+}
+
+.delete_modal {
   z-index: 1057 !important;
 }
 
@@ -2089,6 +2094,9 @@ body {
   }
   .menu_container {
     width: 70%;
+  }
+  .card_container .nothing_to_do {
+    font-size: 1.2em;
   }
 }
 
